@@ -3474,6 +3474,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash@npm:^4.14.104":
+  version: 4.14.182
+  resolution: "@types/lodash@npm:4.14.182"
+  checksum: 7dd137aa9dbabd632408bd37009d984655164fa1ecc3f2b6eb94afe35bf0a5852cbab6183148d883e9c73a958b7fec9a9bcf7c8e45d41195add6a18c34958209
+  languageName: node
+  linkType: hard
+
 "@types/long@npm:^4.0.0, @types/long@npm:^4.0.1":
   version: 4.0.2
   resolution: "@types/long@npm:4.0.2"
@@ -8061,6 +8068,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"firebase-functions-test@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "firebase-functions-test@npm:2.0.2"
+  dependencies:
+    "@types/lodash": ^4.14.104
+    lodash: ^4.17.5
+    ts-deepmerge: ^2.0.1
+  peerDependencies:
+    firebase-admin: ">=6.0.0"
+    firebase-functions: ">=3.20.1"
+  checksum: 01329ece1811398e2bae6dc8152dbd4f1ea46d3d69b075363f09ccec9ecb242c2d3271b2bc7d2bb321d20b5cf5d883599427080e340131bf2d552ea90bab9c46
+  languageName: node
+  linkType: hard
+
 "firebase-functions@npm:^3.21.1":
   version: 3.21.1
   resolution: "firebase-functions@npm:3.21.1"
@@ -11222,7 +11243,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.10, lodash@npm:^4.17.11, lodash@npm:^4.17.14, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:^4.7.0":
+"lodash@npm:^4.17.10, lodash@npm:^4.17.11, lodash@npm:^4.17.14, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:^4.17.5, lodash@npm:^4.7.0":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
@@ -15583,6 +15604,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ts-deepmerge@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "ts-deepmerge@npm:2.0.1"
+  checksum: 1d41981364192b521ce375740646ac2e00d7e3815c066624159309d3a2e43100449bc05c56d51938a1e5be444b0ca88ad9ce599fc489719805b9a2e9d4153194
+  languageName: node
+  linkType: hard
+
 "ts-jest@npm:27.1.4":
   version: 27.1.4
   resolution: "ts-jest@npm:27.1.4"
@@ -16527,6 +16555,7 @@ __metadata:
     eslint-plugin-react-hooks: 4.5.0
     firebase-admin: ^10.2.0
     firebase-functions: ^3.21.1
+    firebase-functions-test: ^2.0.2
     firebase-tools: ^10.9.2
     jest: 27.5.1
     nx: 14.1.5
