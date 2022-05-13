@@ -2011,6 +2011,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nrwl/node@npm:^14.1.5":
+  version: 14.1.5
+  resolution: "@nrwl/node@npm:14.1.5"
+  dependencies:
+    "@nrwl/devkit": 14.1.5
+    "@nrwl/jest": 14.1.5
+    "@nrwl/js": 14.1.5
+    "@nrwl/linter": 14.1.5
+    "@nrwl/workspace": 14.1.5
+    chalk: 4.1.0
+    copy-webpack-plugin: ^9.0.1
+    enhanced-resolve: ^5.8.3
+    fork-ts-checker-webpack-plugin: 6.2.10
+    fs-extra: ^10.1.0
+    glob: 7.1.4
+    license-webpack-plugin: ^4.0.2
+    rxjs: ^6.5.4
+    rxjs-for-await: 0.0.2
+    source-map-support: 0.5.19
+    terser-webpack-plugin: ^5.3.0
+    tree-kill: 1.2.2
+    ts-loader: ^9.2.6
+    ts-node: ~9.1.1
+    tsconfig-paths: ^3.9.0
+    tsconfig-paths-webpack-plugin: 3.5.2
+    tslib: ^2.3.0
+    webpack: ^5.58.1
+    webpack-merge: ^5.8.0
+    webpack-node-externals: ^3.0.0
+  checksum: 1eedebeac09fabc410a7e13d2152693936e9b9dea7944c80d3bcd7ecdd84e63acd67f238658940e3026a66c9ee0ccb04133ec0b1c4e9743ca72b5590a718d4d2
+  languageName: node
+  linkType: hard
+
 "@nrwl/react@npm:14.1.5":
   version: 14.1.5
   resolution: "@nrwl/react@npm:14.1.5"
@@ -13054,6 +13087,7 @@ __metadata:
     "@nrwl/eslint-plugin-nx": 14.1.5
     "@nrwl/jest": 14.1.5
     "@nrwl/linter": 14.1.5
+    "@nrwl/node": ^14.1.5
     "@nrwl/react": 14.1.5
     "@nrwl/web": 14.1.5
     "@nrwl/workspace": 14.1.5
