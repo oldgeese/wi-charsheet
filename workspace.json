@@ -2,6 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "firebase": "apps/firebase",
     "wi-charsheet": "apps/wi-charsheet",
     "wi-charsheet-e2e": "apps/wi-charsheet-e2e"
   }
