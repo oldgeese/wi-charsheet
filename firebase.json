@@ -4,13 +4,14 @@
     "indexes": "apps/firebase/firestore.indexes.json"
   },
   "functions": {
+    "source": "dist/apps/firebase",
     "predeploy": [
-      "npm --prefix \"$RESOURCE_DIR\" run lint",
-      "npm --prefix \"$RESOURCE_DIR\" run build"
+      "nx lint functions",
+      "nx build functions"
     ]
   },
   "hosting": {
-    "public": "public",
+    "public": "dist/apps/wi-charsheet",
     "ignore": [
       "firebase.json",
       "**/.*",
