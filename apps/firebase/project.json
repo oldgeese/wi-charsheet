@@ -10,10 +10,7 @@
         "outputPath": "dist/apps/firebase",
         "main": "apps/firebase/src/main.ts",
         "tsConfig": "apps/firebase/tsconfig.app.json",
-        "assets": [
-          "apps/firebase/src/assets",
-          "apps/firebase/src/package.json"
-        ]
+        "assets": ["apps/firebase/src/assets"]
       },
       "configurations": {
         "production": {
@@ -32,13 +29,53 @@
     "build": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "command": "nx run firebase:build-node"
+        "commands" : [
+          {
+            "command": "nx run firebase:build-node"
+          },
+          {
+            "command": "ts-node tools/scripts/build-firebase-functions-package-json.ts firebase"
+          },
+          {
+            "command": "cd dist/apps/firebase && npm install --package-lock-only"
+          }
+        ],
+        "parallel": false
+      },
+      "configurations": {
+        "production": {
+          "prod": true
+        }
       }
     },
     "serve": {
-      "executor": "@nrwl/node:node",
+      "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "buildTarget": "firebase:build"
+        "command": "nx run firebase:build && firebase emulators:start --only functions --inspect-functions"
+      }
+    },
+    "shell": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "nx run firebase:build && firebase functions:shell --inspect-functions"
+      }
+    },
+    "start": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "nx run firebase:shell"
+      }
+    },
+    "deploy": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "firebase deploy --only functions"
+      }
+    },
+    "logs": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "firebase functions:log"
       }
     },
     "lint": {
