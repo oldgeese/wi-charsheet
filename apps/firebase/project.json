@@ -3,14 +3,17 @@
   "sourceRoot": "apps/firebase/src",
   "projectType": "application",
   "targets": {
-    "build": {
+    "build-node": {
       "executor": "@nrwl/node:webpack",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/firebase",
         "main": "apps/firebase/src/main.ts",
         "tsConfig": "apps/firebase/tsconfig.app.json",
-        "assets": ["apps/firebase/src/assets"]
+        "assets": [
+          "apps/firebase/src/assets",
+          "apps/firebase/src/package.json"
+        ]
       },
       "configurations": {
         "production": {
@@ -24,6 +27,12 @@
             }
           ]
         }
+      }
+    },
+    "build": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "nx run firebase:build-node"
       }
     },
     "serve": {
