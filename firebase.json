@@ -6,8 +6,8 @@
   "functions": {
     "source": "dist/apps/firebase",
     "predeploy": [
-      "nx lint functions",
-      "nx build functions"
+      "nx lint firebase",
+      "nx build firebase"
     ]
   },
   "hosting": {
