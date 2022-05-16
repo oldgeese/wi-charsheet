@@ -1,7 +1,7 @@
-import { character } from './character';
+import { Character } from './character';
 
-describe('character', () => {
+describe('Character', () => {
   it('should work', () => {
-    expect(character()).toEqual('character');
+    // expect(Character()).toEqual('character');
   });
 });

@@ -1,7 +1,10 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-/* eslint-disable-next-line */
-export interface CharsheetProps {}
+import { Character } from '@wi-charsheet/character'
+
+export interface CharsheetProps {
+  character: Character
+}
 
 const StyledCharsheet = styled.div`
   color: pink;
@@ -11,6 +14,10 @@ export function Charsheet(props: CharsheetProps) {
   return (
     <StyledCharsheet>
       <h1>Welcome to Charsheet!</h1>
+      <ul>
+        <li>{props.character.plName}</li>
+        <li>{props.character.pcName}</li>
+      </ul>
     </StyledCharsheet>
   );
 }

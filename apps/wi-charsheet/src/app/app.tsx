@@ -1,14 +1,23 @@
 import styled from 'styled-components';
-import NxWelcome from './nx-welcome';
+
+import { Character, newCharacter } from '@wi-charsheet/character'
+import { Charsheet } from '@wi-charsheet/ui'
+import { useEffect, useState } from 'react';
 
 const StyledApp = styled.div`
-  // Your style here
 `;
 
 export function App() {
+
+  const [character, setCharacter] = useState<Character>(newCharacter())
+
+  useEffect(() => {
+    setCharacter(newCharacter())
+  }, [])
+
   return (
     <StyledApp>
-      <NxWelcome title="wi-charsheet" />
+      <Charsheet character={character}/>
     </StyledApp>
   );
 }
