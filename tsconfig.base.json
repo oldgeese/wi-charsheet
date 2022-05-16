@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@wi-charsheet/character": ["libs/character/src/index.ts"],
       "@wi-charsheet/ui": ["libs/ui/src/index.ts"]
     }
   },
