@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "firebase": "apps/firebase",
+    "ui": "libs/ui",
     "wi-charsheet": "apps/wi-charsheet",
     "wi-charsheet-e2e": "apps/wi-charsheet-e2e"
   }
