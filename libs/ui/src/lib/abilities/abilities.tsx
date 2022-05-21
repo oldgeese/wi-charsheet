@@ -61,7 +61,6 @@ const CapacityTopLabel = styled('div')`
 
 const Capacity = styled('div')`
   border-bottom: 2px solid black;
-  border-bottom-width: 90%;
   width: 100%;
   height: 80%;
 `
