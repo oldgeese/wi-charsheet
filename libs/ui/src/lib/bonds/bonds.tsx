@@ -13,9 +13,6 @@ export interface BondsProps {
 }
 
 const StyledBonds = styled('div')``
-const StyledTableCell = styled(TableCell)`
-  border: 1px solid black;
-`
 
 export function Bonds(props: BondsProps) {
   const ps = props.bonds
@@ -25,19 +22,19 @@ export function Bonds(props: BondsProps) {
         <Table aria-label="bonds table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>名前</StyledTableCell>
-              <StyledTableCell>関係</StyledTableCell>
-              <StyledTableCell>種別</StyledTableCell>
-              <StyledTableCell align="center">使用</StyledTableCell>
+              <TableCell>名前</TableCell>
+              <TableCell>関係</TableCell>
+              <TableCell>種別</TableCell>
+              <TableCell align="center">使用</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {ps.map((p) => (
               <TableRow key={p.id}>
-                <StyledTableCell>{p.name}</StyledTableCell>
-                <StyledTableCell>{p.relation}</StyledTableCell>
-                <StyledTableCell>{p.type}</StyledTableCell>
-                <StyledTableCell align="center"><Checkbox checked={p.used} disabled/></StyledTableCell>
+                <TableCell>{p.name}</TableCell>
+                <TableCell>{p.relation}</TableCell>
+                <TableCell>{p.type}</TableCell>
+                <TableCell align="center"><Checkbox checked={p.used} disabled/></TableCell>
               </TableRow>
             ))}
           </TableBody>
