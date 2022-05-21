@@ -1,3 +1,4 @@
+export * from './lib/general-information/general-information';
 export * from './lib/frequently-used-spells/frequently-used-spells';
 export * from './lib/spells/spells';
 export * from './lib/skills/skills';
