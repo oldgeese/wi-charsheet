@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-
 import { Character } from '@wi-charsheet/character'
+import { Abilities, Bonds, Feats, Features, FrequentlyUsedSpells, GeneralInformation, Skills, Spells, Weapons } from '@wi-charsheet/ui'
+import styled from 'styled-components'
 
 export interface CharsheetProps {
   character: Character
@@ -12,11 +12,15 @@ const StyledCharsheet = styled.div`
 export function Charsheet(props: CharsheetProps) {
   return (
     <StyledCharsheet>
-      <h1>Welcome to Charsheet!</h1>
-      <ul>
-        <li>{props.character.plName}</li>
-        <li>{props.character.pcName}</li>
-      </ul>
+      <GeneralInformation generalInformation={props.character.generalInformation}/>
+      <Abilities />
+      <Bonds />
+      <Features />
+      <Feats />
+      <Weapons />
+      <Skills />
+      <Spells />
+      <FrequentlyUsedSpells />
     </StyledCharsheet>
   );
 }

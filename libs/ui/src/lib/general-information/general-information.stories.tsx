@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react';
+import { newGeneralInformation } from '@wi-charsheet/general-information';
 import { GeneralInformation, GeneralInformationProps } from './general-information';
 
 export default {
@@ -9,4 +10,6 @@ export default {
 const Template: Story<GeneralInformationProps> = (args) => <GeneralInformation {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  generalInformation: newGeneralInformation()
+};

@@ -1,16 +1,31 @@
 import styled from 'styled-components';
 
-/* eslint-disable-next-line */
-export interface GeneralInformationProps {}
+import { GeneralInformation as Data } from '@wi-charsheet/general-information'
 
-const StyledGeneralInformation = styled.div`
-  color: pink;
-`;
+export interface GeneralInformationProps {
+  generalInformation: Data
+}
+
+const StyledGeneralInformation = styled.div` `
 
 export function GeneralInformation(props: GeneralInformationProps) {
+  const p = props.generalInformation
   return (
     <StyledGeneralInformation>
-      <h1>Welcome to General!</h1>
+      <div>{p.plName}</div>
+      <div>{p.pcName}</div>
+      <div>{p.race}</div>
+      <div>{p.age.toString()}</div>
+      <div>{p.gender}</div>
+      <div>{p.shapeAndOriginOfCapacity}</div>
+      <div>{p.reason}</div>
+      <div>{p.appearance}</div>
+      <div>{p.keys.map((key) =>
+        <div>
+          <div>{key.name}</div>
+          <div>{key.used.toString()}</div>
+        </div>
+      )}</div>
     </StyledGeneralInformation>
   );
 }
