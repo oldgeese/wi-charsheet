@@ -23,9 +23,9 @@ export function newGeneralInformation(): GeneralInformation {
     reason: '',
     appearance: '',
     keys: [
-      { name: '', used: false },
-      { name: '', used: false },
-      { name: '', used: false },
+      { id:'1', name: '', used: false },
+      { id:'2', name: '', used: false },
+      { id:'3', name: '', used: false },
     ]
   }
 }

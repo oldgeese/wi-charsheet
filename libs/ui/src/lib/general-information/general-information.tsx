@@ -21,7 +21,7 @@ export function GeneralInformation(props: GeneralInformationProps) {
       <div>フェノメナでいる理由:{p.reason}</div>
       <div>外見の特徴など:{p.appearance}</div>
       <div>{p.keys.map((key) =>
-        <div>
+        <div key={key.id}>
           <div>キー:{key.name}</div>
           <div>{key.used.toString()}</div>
         </div>
