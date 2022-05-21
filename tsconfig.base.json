@@ -16,6 +16,10 @@
     "baseUrl": ".",
     "paths": {
       "@wi-charsheet/character": ["libs/character/src/index.ts"],
+      "@wi-charsheet/general-information": [
+        "libs/general-information/src/index.ts"
+      ],
+      "@wi-charsheet/key": ["libs/key/src/index.ts"],
       "@wi-charsheet/ui": ["libs/ui/src/index.ts"]
     }
   },

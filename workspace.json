@@ -4,6 +4,8 @@
   "projects": {
     "character": "libs/character",
     "firebase": "apps/firebase",
+    "general-information": "libs/general-information",
+    "key": "libs/key",
     "ui": "libs/ui",
     "wi-charsheet": "apps/wi-charsheet",
     "wi-charsheet-e2e": "apps/wi-charsheet-e2e"
