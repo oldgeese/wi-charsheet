@@ -7,16 +7,19 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           border: '1px solid black',
-        }
-      }
+        },
+        head: {
+          backgroundColor: grey[300],
+        },
+      },
     },
     MuiTableRow: {
       styleOverrides: {
         head: {
           backgroundColor: grey[300],
-        }
-      }
-    }
+        },
+      },
+    },
   }
 })
 
