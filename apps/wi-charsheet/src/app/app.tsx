@@ -1,11 +1,11 @@
-import styled from 'styled-components';
-
-import { Character, newCharacter } from '@wi-charsheet/character'
-import { Charsheet } from '@wi-charsheet/ui'
+import styled from '@emotion/styled';
+import { ThemeProvider } from '@mui/material/styles';
+import { Character, newCharacter } from '@wi-charsheet/character';
+import { Charsheet } from '@wi-charsheet/ui';
 import { useEffect, useState } from 'react';
+import { theme } from './styles/theme';
 
-const StyledApp = styled.div`
-`;
+const StyledApp = styled.div` `
 
 export function App() {
 
@@ -16,9 +16,11 @@ export function App() {
   }, [])
 
   return (
-    <StyledApp>
-      <Charsheet character={character}/>
-    </StyledApp>
+    <ThemeProvider theme={theme}>
+      <StyledApp>
+        <Charsheet character={character}/>
+      </StyledApp>
+    </ThemeProvider>
   );
 }
 
