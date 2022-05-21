@@ -1,18 +1,24 @@
-import styled from 'styled-components';
-
+import Typography from '@mui/material/Typography';
+import styled from '@emotion/styled';
 import { GeneralInformation as Data } from '@wi-charsheet/general-information'
 
 export interface GeneralInformationProps {
   generalInformation: Data
 }
 
-const StyledGeneralInformation = styled.div` `
+const StyledGeneralInformation = styled('div')`
+`
+
+const PlName = styled(Typography)`
+  border-bottom: 1px solid black;
+  width: 100px;
+` as typeof Typography
 
 export function GeneralInformation(props: GeneralInformationProps) {
   const p = props.generalInformation
   return (
     <StyledGeneralInformation>
-      <div>PL:{p.plName}</div>
+      <PlName>PL:{p.plName}</PlName>
       <div>名:{p.pcName}</div>
       <div>種族:{p.race}</div>
       <div>年齢:{p.age}</div>
