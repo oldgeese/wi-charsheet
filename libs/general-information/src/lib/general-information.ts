@@ -4,7 +4,7 @@ export interface GeneralInformation {
   plName: string
   pcName: string
   race: string
-  age: Number
+  age: number
   gender: string
   shapeAndOriginOfCapacity: string
   reason: string

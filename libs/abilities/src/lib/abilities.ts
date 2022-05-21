@@ -1,15 +1,15 @@
 export interface Abilities {
-  comsumedExp: Number
-  exp: Number
-  fullCount: Number
-  capacity: Number
-  initialCapacity: Number
-  strength: Number
-  dexterity: Number
-  technique: Number
-  intelligence: Number
-  sensibility: Number
-  charisma: Number
+  comsumedExp: number
+  exp: number
+  fullCount: number
+  capacity: number
+  initialCapacity: number
+  strength: number
+  dexterity: number
+  technique: number
+  intelligence: number
+  sensibility: number
+  charisma: number
 }
 export function newAbilities(): Abilities {
   return {
