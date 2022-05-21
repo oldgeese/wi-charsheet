@@ -1,7 +1,7 @@
-import { bonds } from './bonds';
+import { newBonds } from './bonds'
 
 describe('bonds', () => {
   it('should work', () => {
-    expect(bonds()).toEqual('bonds');
+    expect(newBonds()).toBeTruthy()
   });
 });
