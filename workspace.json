@@ -2,11 +2,19 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "abilities": "libs/abilities",
+    "bonds": "libs/bonds",
     "character": "libs/character",
+    "feats": "libs/feats",
+    "features": "libs/features",
     "firebase": "apps/firebase",
+    "frequently-used-spells": "libs/frequently-used-spells",
     "general-information": "libs/general-information",
     "key": "libs/key",
+    "skills": "libs/skills",
+    "spells": "libs/spells",
     "ui": "libs/ui",
+    "weapons": "libs/weapons",
     "wi-charsheet": "apps/wi-charsheet",
     "wi-charsheet-e2e": "apps/wi-charsheet-e2e"
   }

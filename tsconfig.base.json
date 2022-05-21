@@ -15,12 +15,22 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@wi-charsheet/abilities": ["libs/abilities/src/index.ts"],
+      "@wi-charsheet/bonds": ["libs/bonds/src/index.ts"],
       "@wi-charsheet/character": ["libs/character/src/index.ts"],
+      "@wi-charsheet/feats": ["libs/feats/src/index.ts"],
+      "@wi-charsheet/features": ["libs/features/src/index.ts"],
+      "@wi-charsheet/frequently-used-spells": [
+        "libs/frequently-used-spells/src/index.ts"
+      ],
       "@wi-charsheet/general-information": [
         "libs/general-information/src/index.ts"
       ],
       "@wi-charsheet/key": ["libs/key/src/index.ts"],
-      "@wi-charsheet/ui": ["libs/ui/src/index.ts"]
+      "@wi-charsheet/skills": ["libs/skills/src/index.ts"],
+      "@wi-charsheet/spells": ["libs/spells/src/index.ts"],
+      "@wi-charsheet/ui": ["libs/ui/src/index.ts"],
+      "@wi-charsheet/weapons": ["libs/weapons/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
