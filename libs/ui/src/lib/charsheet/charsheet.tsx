@@ -7,7 +7,6 @@ export interface CharsheetProps {
 }
 
 const StyledCharsheet = styled.div`
-  color: pink;
 `;
 
 export function Charsheet(props: CharsheetProps) {

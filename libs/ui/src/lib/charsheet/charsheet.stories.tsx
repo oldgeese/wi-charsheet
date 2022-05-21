@@ -9,4 +9,9 @@ export default {
 const Template: Story<CharsheetProps> = (args) => <Charsheet {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  character: {
+    plName: 'aaa',
+    pcName: 'bbb',
+  }
+};
