@@ -1,7 +1,7 @@
-import { abilities } from './abilities';
+import { newAbilities } from './abilities';
 
 describe('abilities', () => {
   it('should work', () => {
-    expect(abilities()).toEqual('abilities');
+    expect(newAbilities()).toBeTruthy();
   });
 });

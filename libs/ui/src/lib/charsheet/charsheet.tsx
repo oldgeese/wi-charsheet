@@ -10,10 +10,11 @@ const StyledCharsheet = styled.div`
 `;
 
 export function Charsheet(props: CharsheetProps) {
+  const p = props.character
   return (
     <StyledCharsheet>
-      <GeneralInformation generalInformation={props.character.generalInformation}/>
-      <Abilities />
+      <GeneralInformation generalInformation={p.generalInformation}/>
+      <Abilities abilities={p.abilities}/>
       <Bonds />
       <Features />
       <Feats />

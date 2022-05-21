@@ -1,15 +1,15 @@
-import { Key } from "@wi-charsheet/key";
+import { Key } from "@wi-charsheet/key"
 
 export interface GeneralInformation {
-  plName: string;
-  pcName: string;
-  race: string;
-  age: Number;
-  gender: string;
-  shapeAndOriginOfCapacity: string;
-  reason: string;
-  appearance: string;
-  keys: Key[];
+  plName: string
+  pcName: string
+  race: string
+  age: Number
+  gender: string
+  shapeAndOriginOfCapacity: string
+  reason: string
+  appearance: string
+  keys: Key[]
 }
 
 export function newGeneralInformation(): GeneralInformation {

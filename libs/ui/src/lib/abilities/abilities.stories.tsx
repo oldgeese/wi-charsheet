@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react';
+import { newAbilities } from '@wi-charsheet/abilities';
 import { Abilities, AbilitiesProps } from './abilities';
 
 export default {
@@ -9,4 +10,6 @@ export default {
 const Template: Story<AbilitiesProps> = (args) => <Abilities {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  abilities: newAbilities()
+};

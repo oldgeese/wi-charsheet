@@ -1,7 +1,7 @@
-import { generalInformation } from './general-information';
+import { newGeneralInformation } from './general-information'
 
 describe('generalInformation', () => {
   it('should work', () => {
-    expect(generalInformation()).toEqual('general-information');
+    expect(newGeneralInformation()).toBeTruthy()
   });
 });
