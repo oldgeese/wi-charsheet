@@ -1,5 +1,5 @@
 import { Bond } from '@wi-charsheet/bonds';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -12,9 +12,9 @@ export interface BondsProps {
   bonds: Bond[]
 }
 
-const StyledBonds = styled.div` `
+const StyledBonds = styled('div')``
 const StyledTableCell = styled(TableCell)`
-  border: 1px solid
+  border: 1px solid black;
 `
 
 export function Bonds(props: BondsProps) {
@@ -25,10 +25,10 @@ export function Bonds(props: BondsProps) {
         <Table aria-label="bonds table">
           <TableHead>
             <TableRow>
-              <TableCell>名前</TableCell>
-              <TableCell>関係</TableCell>
-              <TableCell>種別</TableCell>
-              <TableCell align="center">使用</TableCell>
+              <StyledTableCell>名前</StyledTableCell>
+              <StyledTableCell>関係</StyledTableCell>
+              <StyledTableCell>種別</StyledTableCell>
+              <StyledTableCell align="center">使用</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
