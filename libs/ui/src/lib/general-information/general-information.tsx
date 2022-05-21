@@ -15,7 +15,7 @@ export function GeneralInformation(props: GeneralInformationProps) {
       <div>PL:{p.plName}</div>
       <div>名:{p.pcName}</div>
       <div>種族:{p.race}</div>
-      <div>年齢:{p.age.toString()}</div>
+      <div>年齢:{p.age}</div>
       <div>性別:{p.gender}</div>
       <div>&lt;器&gt;の形状と由来:{p.shapeAndOriginOfCapacity}</div>
       <div>フェノメナでいる理由:{p.reason}</div>
