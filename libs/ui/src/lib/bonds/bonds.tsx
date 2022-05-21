@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Checkbox from '@mui/material/Checkbox';
+import Typography from '@mui/material/Typography';
 
 export interface BondsProps {
   bonds: Bond[]
@@ -18,6 +19,7 @@ export function Bonds(props: BondsProps) {
   const ps = props.bonds
   return (
     <StyledBonds>
+      <Typography variant="h6">▽ボンド</Typography>
       <TableContainer>
         <Table aria-label="bonds table">
           <TableHead>
