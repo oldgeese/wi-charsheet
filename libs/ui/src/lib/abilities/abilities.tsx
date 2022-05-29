@@ -24,7 +24,7 @@ const ComsumedExp = styled(Typography)`
 
 const Exp = styled('div')`
   position: absolute;
-  top: 0px;
+  top: 8px;
   left: 50%;
 `
 
@@ -36,7 +36,7 @@ const FullCount = styled('div')`
 
 const CapacityContainer = styled('div')`
   position: absolute;
-  top: 0px;
+  top: 8px;
   left: 80%;
   width: 200px;
   height: 200px;
