@@ -33,10 +33,10 @@ export function Bonds(props: BondsProps) {
           <TableBody>
             {ps.map((p) => (
               <TableRow key={p.id}>
-                <TableCell>{p.name}</TableCell>
-                <TableCell>{p.relation}</TableCell>
-                <TableCell>{p.type}</TableCell>
-                <TableCell align="center"><Checkbox checked={p.used} disabled/></TableCell>
+                <TableCell sx={{width: '25%'}}>{p.name}</TableCell>
+                <TableCell sx={{width: '55%'}}>{p.relation}</TableCell>
+                <TableCell sx={{width: '15%'}}>{p.type}</TableCell>
+                <TableCell align="center" sx={{width: '5%'}}><Checkbox checked={p.used} disabled/></TableCell>
               </TableRow>
             ))}
           </TableBody>
