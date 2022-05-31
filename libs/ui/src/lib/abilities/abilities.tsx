@@ -26,12 +26,14 @@ const Exp = styled('div')`
   position: absolute;
   top: 8px;
   left: 50%;
+  min-width: 15rem;
 `
 
 const FullCount = styled('div')`
   position: absolute;
   top: 60px;
   left: 50%;
+  min-width: 15rem;
 `
 
 const CapacityContainer = styled('div')`
