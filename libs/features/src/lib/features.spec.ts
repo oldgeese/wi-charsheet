@@ -1,7 +1,7 @@
-import { features } from './features';
+import { newFeatures } from './features';
 
 describe('features', () => {
   it('should work', () => {
-    expect(features()).toEqual('features');
+    expect(newFeatures()).toBeTruthy();
   });
 });

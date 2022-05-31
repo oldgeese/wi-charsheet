@@ -39,7 +39,7 @@ const FullCount = styled('div')`
 const CapacityContainer = styled('div')`
   position: absolute;
   top: 8px;
-  left: 80%;
+  right: 0%;
   width: 200px;
   height: 200px;
   border: 2px solid black;
@@ -78,14 +78,14 @@ export function Abilities(props: AbilitiesProps) {
     <StyledAbilities>
       <div>
         <Typography variant="h6" component="span">▽能力値</Typography>
-        <ComsumedExp component="span">消費経験点:{p.comsumedExp.toString()}</ComsumedExp>
+        <ComsumedExp component="span">消費経験点:{p.consumedExp}</ComsumedExp>
       </div>
       <Exp>
         <Box sx={{
           border: '1px solid black',
           padding: '10px',
         }}>
-          保有経験点:{p.exp.toString()}
+          保有経験点:{p.exp}
         </Box>
       </Exp>
       <FullCount>
@@ -93,14 +93,14 @@ export function Abilities(props: AbilitiesProps) {
           border: '1px solid black',
           padding: '10px',
         }}>
-          フルカウント:{p.fullCount.toString()}
+          フルカウント:{p.fullCount}
         </Box>
       </FullCount>
       <CapacityContainer>
         <CapacityTopLabel>&lt;器&gt;</CapacityTopLabel>
         <CapacityBorder>
-          <Capacity>{p.capacity.toString()}</Capacity>
-          <InitialCapacity>初期値: {p.initialCapacity.toString()}点</InitialCapacity>
+          <Capacity>{p.capacity}</Capacity>
+          <InitialCapacity>初期値: {p.initialCapacity}点</InitialCapacity>
         </CapacityBorder>
       </CapacityContainer>
       <TableContainer>

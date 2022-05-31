@@ -16,9 +16,9 @@ export function Charsheet(props: CharsheetProps) {
       <GeneralInformation generalInformation={p.generalInformation}/>
       <Abilities abilities={p.abilities}/>
       <Bonds bonds={p.bonds}/>
-      <Features />
-      <Feats />
-      <Weapons />
+      <Features features={p.features}/>
+      <Feats feats={p.feats}/>
+      <Weapons weapons={p.weapons}/>
       <Skills />
       <Spells />
       <FrequentlyUsedSpells />

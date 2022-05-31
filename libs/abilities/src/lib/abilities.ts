@@ -1,5 +1,5 @@
 export interface Abilities {
-  comsumedExp: number
+  consumedExp: number
   exp: number
   fullCount: number
   capacity: number
@@ -13,7 +13,7 @@ export interface Abilities {
 }
 export function newAbilities(): Abilities {
   return {
-    comsumedExp: 0,
+    consumedExp: 0,
     exp: 0,
     fullCount: 0,
     capacity: 0,

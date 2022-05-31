@@ -1,7 +1,7 @@
-import { weapons } from './weapons';
+import { newWeapons } from './weapons';
 
 describe('weapons', () => {
   it('should work', () => {
-    expect(weapons()).toEqual('weapons');
+    expect(newWeapons()).toBeTruthy();
   });
 });

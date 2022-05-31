@@ -1,13 +1,13 @@
-import { Bond } from '@wi-charsheet/bonds';
 import styled from '@emotion/styled';
+import Checkbox from '@mui/material/Checkbox';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Checkbox from '@mui/material/Checkbox';
 import Typography from '@mui/material/Typography';
+import { Bond } from '@wi-charsheet/bonds';
 
 export interface BondsProps {
   bonds: Bond[]
@@ -35,8 +35,8 @@ export function Bonds(props: BondsProps) {
               <TableRow key={p.id}>
                 <TableCell sx={{width: '25%'}}>{p.name}</TableCell>
                 <TableCell sx={{width: '55%'}}>{p.relation}</TableCell>
-                <TableCell sx={{width: '15%'}}>{p.type}</TableCell>
-                <TableCell align="center" sx={{width: '5%'}}><Checkbox checked={p.used} disabled/></TableCell>
+                <TableCell sx={{width: '10%'}}>{p.type}</TableCell>
+                <TableCell align="center" sx={{width: '10%'}}><Checkbox checked={p.used} disabled/></TableCell>
               </TableRow>
             ))}
           </TableBody>

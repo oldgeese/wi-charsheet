@@ -1,4 +1,5 @@
-import { Story, Meta } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
+import { newWeapons } from '@wi-charsheet/weapons';
 import { Weapons, WeaponsProps } from './weapons';
 
 export default {
@@ -9,4 +10,6 @@ export default {
 const Template: Story<WeaponsProps> = (args) => <Weapons {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  weapons: newWeapons()
+};

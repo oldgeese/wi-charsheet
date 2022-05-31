@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react';
+import { newFeatures } from '@wi-charsheet/features';
 import { Features, FeaturesProps } from './features';
 
 export default {
@@ -9,4 +10,6 @@ export default {
 const Template: Story<FeaturesProps> = (args) => <Features {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  features: newFeatures()
+};
