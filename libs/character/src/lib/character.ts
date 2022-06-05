@@ -3,6 +3,7 @@ import { Bond, newBonds } from '@wi-charsheet/bonds'
 import { Features, newFeatures } from '@wi-charsheet/features'
 import { Feats, newFeats } from '@wi-charsheet/feats'
 import { Weapons, newWeapons } from '@wi-charsheet/weapons'
+import { Skills, newSkills } from '@wi-charsheet/skills'
 import { GeneralInformation, newGeneralInformation } from '@wi-charsheet/general-information'
 
 export interface Character {
@@ -12,6 +13,7 @@ export interface Character {
   features: Features
   feats: Feats
   weapons: Weapons
+  skills: Skills
 }
 
 export function newCharacter(): Character {
@@ -22,5 +24,6 @@ export function newCharacter(): Character {
     features: newFeatures(),
     feats: newFeats(),
     weapons: newWeapons(),
+    skills: newSkills(),
   }
 }

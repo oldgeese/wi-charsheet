@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react';
+import { newSkills } from "@wi-charsheet/skills";
 import { Skills, SkillsProps } from './skills';
 
 export default {
@@ -9,4 +10,6 @@ export default {
 const Template: Story<SkillsProps> = (args) => <Skills {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  skills: newSkills()
+};

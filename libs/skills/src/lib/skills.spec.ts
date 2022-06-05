@@ -1,7 +1,7 @@
-import { skills } from './skills';
+import { newSkills } from './skills';
 
 describe('skills', () => {
   it('should work', () => {
-    expect(skills()).toEqual('skills');
+    expect(newSkills()).toBeTruthy();
   });
 });
