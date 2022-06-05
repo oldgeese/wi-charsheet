@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react';
+import { newSpells } from "@wi-charsheet/spells";
 import { Spells, SpellsProps } from './spells';
 
 export default {
@@ -9,4 +10,6 @@ export default {
 const Template: Story<SpellsProps> = (args) => <Spells {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  spells: newSpells()
+};

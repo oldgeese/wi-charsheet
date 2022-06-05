@@ -20,7 +20,7 @@ export function Charsheet(props: CharsheetProps) {
       <Feats feats={p.feats}/>
       <Weapons weapons={p.weapons}/>
       <Skills skills={p.skills}/>
-      <Spells />
+      <Spells spells={p.spells}/>
       <FrequentlyUsedSpells />
     </StyledCharsheet>
   );

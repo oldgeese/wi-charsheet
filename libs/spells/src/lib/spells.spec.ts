@@ -1,7 +1,7 @@
-import { spells } from './spells';
+import { newSpells } from './spells';
 
 describe('spells', () => {
   it('should work', () => {
-    expect(spells()).toEqual('spells');
+    expect(newSpells()).toBeTruthy()
   });
 });
