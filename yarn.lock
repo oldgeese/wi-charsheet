@@ -5702,6 +5702,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/graphql@npm:^14.5.0":
+  version: 14.5.0
+  resolution: "@types/graphql@npm:14.5.0"
+  dependencies:
+    graphql: "*"
+  checksum: 8f6e3873a75f1818b6551dae88002d786f764c6c3f5d3b228078ecfc8fb1b116fcec03a1a0dd1f83790505d8e5ecfc4737e152ad7abb6948ff5412f11d7b1b38
+  languageName: node
+  linkType: hard
+
 "@types/hast@npm:^2.0.0":
   version: 2.3.4
   resolution: "@types/hast@npm:2.3.4"
@@ -13528,7 +13537,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^16.5.0":
+"graphql@npm:*, graphql@npm:^16.5.0":
   version: 16.5.0
   resolution: "graphql@npm:16.5.0"
   checksum: a82a926d085818934d04fdf303a269af170e79de943678bd2726370a96194f9454ade9d6d76c2de69afbd7b9f0b4f8061619baecbbddbe82125860e675ac219e
@@ -24661,6 +24670,7 @@ __metadata:
     "@storybook/react": ~6.4.12
     "@svgr/webpack": ^5.4.0
     "@testing-library/react": 13.1.1
+    "@types/graphql": ^14.5.0
     "@types/jest": 27.4.1
     "@types/node": 16.11.7
     "@types/react": 18.0.8
