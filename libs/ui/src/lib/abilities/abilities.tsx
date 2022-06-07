@@ -49,8 +49,8 @@ const CapacityBorder = styled('div')`
   width: 140px;
   height: 140px;
   border-top: 30px solid #F9F9F9;
-  border-left: 30px solid #EEEEEE;
-  border-bottom: 30px solid #333333;
+  border-left: 30px solid #E0E0E0;
+  border-bottom: 30px solid #777777;
   border-right: 30px solid #CCCCCC
 `
 
