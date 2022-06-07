@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react';
+import { newFrequentlyUsedSpells } from '@wi-charsheet/frequently-used-spells';
 import {
   FrequentlyUsedSpells,
   FrequentlyUsedSpellsProps,
@@ -14,4 +15,6 @@ const Template: Story<FrequentlyUsedSpellsProps> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  frequentlyUsedSpells: newFrequentlyUsedSpells()
+};

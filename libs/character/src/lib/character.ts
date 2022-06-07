@@ -1,11 +1,12 @@
 import { Abilities, newAbilities } from '@wi-charsheet/abilities'
 import { Bond, newBonds } from '@wi-charsheet/bonds'
-import { Features, newFeatures } from '@wi-charsheet/features'
 import { Feats, newFeats } from '@wi-charsheet/feats'
-import { Weapons, newWeapons } from '@wi-charsheet/weapons'
-import { Skills, newSkills } from '@wi-charsheet/skills'
-import { Spells, newSpells } from '@wi-charsheet/spells'
+import { Features, newFeatures } from '@wi-charsheet/features'
+import { FrequentlyUsedSpell, newFrequentlyUsedSpells } from '@wi-charsheet/frequently-used-spells'
 import { GeneralInformation, newGeneralInformation } from '@wi-charsheet/general-information'
+import { newSkills, Skills } from '@wi-charsheet/skills'
+import { newSpells, Spells } from '@wi-charsheet/spells'
+import { newWeapons, Weapons } from '@wi-charsheet/weapons'
 
 export interface Character {
   generalInformation: GeneralInformation
@@ -16,6 +17,7 @@ export interface Character {
   weapons: Weapons
   skills: Skills
   spells: Spells
+  frequentlyUsedSpells: FrequentlyUsedSpell[]
 }
 
 export function newCharacter(): Character {
@@ -28,5 +30,6 @@ export function newCharacter(): Character {
     weapons: newWeapons(),
     skills: newSkills(),
     spells: newSpells(),
+    frequentlyUsedSpells: newFrequentlyUsedSpells(),
   }
 }
