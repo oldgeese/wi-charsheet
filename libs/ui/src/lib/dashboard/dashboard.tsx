@@ -9,6 +9,7 @@ import ListItemText from '@mui/material/ListItemText'
 import ListItemAvatar from '@mui/material/ListItemAvatar'
 import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
+import { Link } from "react-router-dom"
 
 export interface DashboardProps {
   characters: Character[]
@@ -25,7 +26,7 @@ export function Dashboard(props: DashboardProps) {
           Wishful Instruments キャラクターデータベース
         </Typography>
         <Grid container item justifyContent="center">
-          <Button variant="contained" href="/newchar">新規作成</Button>
+          <Button variant="contained" component={Link} to="/newchar">新規作成</Button>
         </Grid>
       </Grid>
       <List>
@@ -33,10 +34,10 @@ export function Dashboard(props: DashboardProps) {
           <ListItem
             key={c.id}
             secondaryAction={
-            <Button variant="contained" href={`/editchar/${c.id}`}>編集</Button>
+            <Button variant="contained" component={Link} to={`/editchar/${c.id}`}>編集</Button>
           }
           >
-            <ListItemButton component="a" href={`/viewchar/${c.id}`}>
+            <ListItemButton component={Link} to={`/viewchar/${c.id}`}>
               <ListItemAvatar>
                 <Avatar src={c.generalInformation.appearance} />
               </ListItemAvatar>
