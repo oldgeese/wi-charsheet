@@ -29,7 +29,7 @@
     "build": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "commands" : [
+        "commands": [
           {
             "command": "nx run firebase:build-node"
           },
