@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { ThemeProvider } from '@mui/material/styles';
 import { Character, newCharacter } from '@wi-charsheet/character';
-import { Charsheet } from '@wi-charsheet/ui';
+import { Dashboard } from '@wi-charsheet/ui';
 import { useEffect, useState } from 'react';
 import { theme } from './styles/theme';
 
@@ -9,16 +9,16 @@ const StyledApp = styled.div` `
 
 export function App() {
 
-  const [character, setCharacter] = useState<Character>(newCharacter())
+  const [characters, setCharacters] = useState<Character[]>([])
 
   useEffect(() => {
-    setCharacter(newCharacter())
+    setCharacters([newCharacter()])
   }, [])
 
   return (
     <ThemeProvider theme={theme}>
       <StyledApp>
-        <Charsheet character={character}/>
+        <Dashboard characters={characters}/>
       </StyledApp>
     </ThemeProvider>
   );

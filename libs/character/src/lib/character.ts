@@ -7,8 +7,12 @@ import { GeneralInformation, newGeneralInformation } from '@wi-charsheet/general
 import { newSkills, Skills } from '@wi-charsheet/skills'
 import { newSpells, Spells } from '@wi-charsheet/spells'
 import { newWeapons, Weapons } from '@wi-charsheet/weapons'
+import { v4 as uuidv4 } from "uuid"
 
 export interface Character {
+  id: string
+  createdAt: Date
+  updatedAt: Date
   generalInformation: GeneralInformation
   abilities: Abilities
   bonds: Bond[]
@@ -22,6 +26,9 @@ export interface Character {
 
 export function newCharacter(): Character {
   return {
+    id: uuidv4(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
     generalInformation: newGeneralInformation(),
     abilities: newAbilities(),
     bonds: newBonds(),
