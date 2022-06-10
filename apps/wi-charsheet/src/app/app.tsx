@@ -25,14 +25,13 @@ export function App() {
       <StyledApp>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Dashboard characters={characters}/>} >
-              <Route index element={<Dashboard characters={characters}/>} />
-              {/*
-              <Route path="newchar" element={<NewChar />} />
-              <Route path="viewchar/:id" element={<ViewChar />} />
-              <Route path="editchar/:id" element={<EditChar />} />
-              */}
-            </Route>
+            <Route path="/" element={<Dashboard characters={characters}/>} />
+            <Route index element={<Dashboard characters={characters}/>} />
+            {/*
+            <Route path="newchar" element={<NewChar />} />
+            <Route path="viewchar/:id" element={<ViewChar />} />
+            <Route path="editchar/:id" element={<EditChar />} />
+            */}
           </Routes>
         </BrowserRouter>
       </StyledApp>
