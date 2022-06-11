@@ -1,4 +1,3 @@
-import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import Grid from '@mui/material/Grid';
 import Table from '@mui/material/Table';
