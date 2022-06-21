@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid"
+
 export interface Bond {
   id: string
   name: string
@@ -8,40 +10,20 @@ export interface Bond {
 
 export function newBonds(): Bond[] {
   return [
-    {
-      id: "1",
-      name: "",
-      relation: "",
-      type: "",
-      used: false,
-    },
-    {
-      id: "2",
-      name: "",
-      relation: "",
-      type: "",
-      used: false,
-    },
-    {
-      id: "3",
-      name: "",
-      relation: "",
-      type: "",
-      used: false,
-    },
-    {
-      id: "4",
-      name: "",
-      relation: "",
-      type: "",
-      used: false,
-    },
-    {
-      id: "5",
-      name: "",
-      relation: "",
-      type: "",
-      used: false,
-    },
+    newBond(),
+    newBond(),
+    newBond(),
+    newBond(),
+    newBond(),
   ]
+}
+
+export function newBond(): Bond {
+  return {
+    id: uuidv4(),
+    name: "",
+    relation: "",
+    type: "",
+    used: false,
+  }
 }

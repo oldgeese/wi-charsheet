@@ -1,3 +1,4 @@
+export * from './lib/newchar/newchar';
 export * from './lib/dashboard/dashboard';
 export * from './lib/general-information/general-information';
 export * from './lib/frequently-used-spells/frequently-used-spells';

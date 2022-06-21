@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { ThemeProvider } from '@mui/material/styles';
 import { Character, newCharacter } from '@wi-charsheet/character';
-import { Dashboard } from '@wi-charsheet/ui';
+import { Dashboard, NewChar } from '@wi-charsheet/ui';
 import { useEffect, useState } from 'react';
 import { theme } from './styles/theme';
 import {
@@ -27,8 +27,8 @@ export function App() {
           <Routes>
             <Route path="/" element={<Dashboard characters={characters}/>} />
             <Route index element={<Dashboard characters={characters}/>} />
-            {/*
             <Route path="newchar" element={<NewChar />} />
+            {/*
             <Route path="viewchar/:id" element={<ViewChar />} />
             <Route path="editchar/:id" element={<EditChar />} />
             */}

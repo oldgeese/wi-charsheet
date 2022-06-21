@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid"
+
 export interface Feats {
   consumedExp: number
   feats: Feat[]
@@ -13,36 +15,20 @@ export function newFeats(): Feats {
   return {
     consumedExp:0,
     feats:[
-      {
-        id: "1",
-        name: "",
-        effect: "",
-        condition: "",
-      },
-      {
-        id: "2",
-        name: "",
-        effect: "",
-        condition: "",
-      },
-      {
-        id: "3",
-        name: "",
-        effect: "",
-        condition: "",
-      },
-      {
-        id: "4",
-        name: "",
-        effect: "",
-        condition: "",
-      },
-      {
-        id: "5",
-        name: "",
-        effect: "",
-        condition: "",
-      },
+      newFeat(),
+      newFeat(),
+      newFeat(),
+      newFeat(),
+      newFeat(),
     ]
+  }
+}
+
+export function newFeat(): Feat {
+  return {
+    id: uuidv4(),
+    name: "",
+    effect: "",
+    condition: "",
   }
 }

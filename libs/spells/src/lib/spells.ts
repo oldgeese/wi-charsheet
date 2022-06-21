@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid"
+
 export interface Spells {
   leftAbility: string
   rightAbility: string
@@ -23,60 +25,24 @@ export function newSpells(): Spells {
     percent: 0,
     consumedExp:0,
     spells:[
-      {
-        id: "1",
-        check: 0,
-        effect: "",
-        attribute: "",
-        keyword: "",
-        motion: "",
-        item: "",
-      },
-      {
-        id: "2",
-        check: 0,
-        effect: "",
-        attribute: "",
-        keyword: "",
-        motion: "",
-        item: "",
-      },
-      {
-        id: "3",
-        check: 0,
-        effect: "",
-        attribute: "",
-        keyword: "",
-        motion: "",
-        item: "",
-      },
-      {
-        id: "4",
-        check: 0,
-        effect: "",
-        attribute: "",
-        keyword: "",
-        motion: "",
-        item: "",
-      },
-      {
-        id: "5",
-        check: 0,
-        effect: "",
-        attribute: "",
-        keyword: "",
-        motion: "",
-        item: "",
-      },
-      {
-        id: "6",
-        check: 0,
-        effect: "",
-        attribute: "",
-        keyword: "",
-        motion: "",
-        item: "",
-      },
+      newSpell(),
+      newSpell(),
+      newSpell(),
+      newSpell(),
+      newSpell(),
+      newSpell(),
     ]
+  }
+}
+
+export function newSpell(): Spell {
+  return {
+    id: uuidv4(),
+    check: 0,
+    effect: "",
+    attribute: "",
+    keyword: "",
+    motion: "",
+    item: "",
   }
 }
