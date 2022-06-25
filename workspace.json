@@ -11,6 +11,8 @@
     "frequently-used-spells": "libs/frequently-used-spells",
     "general-information": "libs/general-information",
     "key": "libs/key",
+    "persistent": "libs/persistent",
+    "service": "libs/service",
     "skills": "libs/skills",
     "spells": "libs/spells",
     "ui": "libs/ui",

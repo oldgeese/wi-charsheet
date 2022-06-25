@@ -27,6 +27,8 @@
         "libs/general-information/src/index.ts"
       ],
       "@wi-charsheet/key": ["libs/key/src/index.ts"],
+      "@wi-charsheet/persistent": ["libs/persistent/src/index.ts"],
+      "@wi-charsheet/service": ["libs/service/src/index.ts"],
       "@wi-charsheet/skills": ["libs/skills/src/index.ts"],
       "@wi-charsheet/spells": ["libs/spells/src/index.ts"],
       "@wi-charsheet/ui": ["libs/ui/src/index.ts"],
