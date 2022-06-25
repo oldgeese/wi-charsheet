@@ -30,6 +30,7 @@ import { Control, Controller, ControllerProps, SubmitHandler, useFieldArray, use
 import { Link } from "react-router-dom";
 import { useRef, useEffect } from 'react'
 import autoAnimate from '@formkit/auto-animate'
+import { create } from "@wi-charsheet/service"
 
 const StyledNewChar = styled('div')``
 
@@ -155,8 +156,8 @@ export function NewChar() {
     name: "abilities"
   })
 
-  const onSubmit: SubmitHandler<Character> = data => {
-    console.log(data)
+  const onSubmit: SubmitHandler<Character> = async (data) => {
+    await create(data)
   }
 
   return (
