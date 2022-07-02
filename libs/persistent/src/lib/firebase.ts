@@ -1,7 +1,7 @@
 import { Character } from "@wi-charsheet/character";
 import { getAnalytics } from "firebase/analytics";
 import { initializeApp } from "firebase/app";
-import { collection, doc, DocumentData, FirestoreDataConverter, getDoc, getDocs, getFirestore, QueryDocumentSnapshot, setDoc, SnapshotOptions } from "firebase/firestore";
+import { collection, connectFirestoreEmulator, doc, DocumentData, FirestoreDataConverter, getDoc, getDocs, getFirestore, QueryDocumentSnapshot, setDoc, SnapshotOptions } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBBQXkqpuNJufRB1L6hsV-agzhcbmeM10g",
@@ -16,6 +16,12 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig)
 export const db = getFirestore(app)
 export const analytics = getAnalytics(app)
+
+const useEmulator = window.location.hostname === 'localhost'
+if (useEmulator) {
+  connectFirestoreEmulator(db, 'localhost', 8080)
+}
+
 
 export const getCharacters = async (): Promise<Character[]> => {
   const charactersCollectionRef = collection(db, "characters").withConverter(characterConverter)

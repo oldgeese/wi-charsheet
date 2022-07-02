@@ -12,6 +12,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
+import LoadingButton from '@mui/lab/LoadingButton';
 import Select from '@mui/material/Select';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -27,7 +28,7 @@ import { newFeat } from 'libs/feats/src/lib/feats';
 import { newSkill } from 'libs/skills/src/lib/skills';
 import { newSpell } from 'libs/spells/src/lib/spells';
 import { Control, Controller, ControllerProps, SubmitHandler, useFieldArray, useForm, useWatch } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useRef, useEffect } from 'react'
 import autoAnimate from '@formkit/auto-animate'
 import { create } from "@wi-charsheet/service"
@@ -92,7 +93,7 @@ export function NewChar() {
       spellsTableRef.current,
     ])
 
-  const { control, handleSubmit } = useForm<Character>({
+  const { control, handleSubmit, formState: {isSubmitting} } = useForm<Character>({
     defaultValues: newCharacter()
   })
 
@@ -156,8 +157,15 @@ export function NewChar() {
     name: "abilities"
   })
 
+  const navigate = useNavigate()
+
   const onSubmit: SubmitHandler<Character> = async (data) => {
-    await create(data)
+    try {
+      await create(data)
+      navigate("/")
+    } catch (error) {
+      console.error('Error writing document: ', error)
+    }
   }
 
   return (
@@ -1092,7 +1100,7 @@ export function NewChar() {
             </Grid>
           </Grid>
           <Grid item xs={12}>
-            <Button variant="contained" onClick={handleSubmit(onSubmit)}>保存</Button>
+            <LoadingButton variant="contained" loading={isSubmitting} onClick={handleSubmit(onSubmit)}>保存してトップに戻る</LoadingButton>
           </Grid>
         </Grid>
       </form>

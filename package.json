@@ -8,7 +8,7 @@
     "test": "nx test",
     "storybook": "nx storybook wi-charsheet",
     "storybook:ui": "nx storybook ui",
-    "emu": "firebase emulators:start"
+    "emu": "firebase emulators:start --import=./data --export-on-exit"
   },
   "private": true,
   "dependencies": {
@@ -16,6 +16,7 @@
     "@emotion/styled": "^11.8.1",
     "@formkit/auto-animate": "^1.0.0-beta.1",
     "@mui/icons-material": "^5.8.4",
+    "@mui/lab": "^5.0.0-alpha.87",
     "@mui/material": "^5.8.0",
     "@mui/styled-engine-sc": "^5.8.0",
     "apollo-server-cloud-functions": "^3.8.2",
