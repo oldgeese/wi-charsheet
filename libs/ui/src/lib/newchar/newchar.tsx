@@ -1,18 +1,20 @@
 import styled from '@emotion/styled';
+import autoAnimate from '@formkit/auto-animate';
+import { zodResolver } from '@hookform/resolvers/zod';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import DeleteIcon from '@mui/icons-material/Delete';
+import LoadingButton from '@mui/lab/LoadingButton';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
+import FormControl from '@mui/material/FormControl';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
-import MenuItem from '@mui/material/MenuItem';
-import LoadingButton from '@mui/lab/LoadingButton';
 import Select from '@mui/material/Select';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -22,16 +24,16 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TextField, { TextFieldProps } from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { Character, newCharacter } from 'libs/character/src/lib/character';
+import { create } from "@wi-charsheet/service";
 import { newBond } from 'libs/bonds/src/lib/bonds';
+import { Character, newCharacter } from 'libs/character/src/lib/character';
 import { newFeat } from 'libs/feats/src/lib/feats';
 import { newSkill } from 'libs/skills/src/lib/skills';
 import { newSpell } from 'libs/spells/src/lib/spells';
+import { useEffect, useRef } from 'react';
 import { Control, Controller, ControllerProps, SubmitHandler, useFieldArray, useForm, useWatch } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { useRef, useEffect } from 'react'
-import autoAnimate from '@formkit/auto-animate'
-import { create } from "@wi-charsheet/service"
+import * as z from 'zod';
 
 const StyledNewChar = styled('div')``
 
@@ -74,6 +76,11 @@ const SelectAbility = (props: SelectAbilityProps) => {
     />
 }
 
+const schema = z.object({
+  password: z.string(),
+  passwordConfirm: z.string(),
+})
+.refine(data => data.password === data.passwordConfirm, {message: 'パスワードが一致しません。', path: ['passwordConfirm']})
 
 export function NewChar() {
   const bondsTableRef = useRef(null)
@@ -93,8 +100,9 @@ export function NewChar() {
       spellsTableRef.current,
     ])
 
-  const { control, handleSubmit, formState: {isSubmitting} } = useForm<Character>({
-    defaultValues: newCharacter()
+  const { control, handleSubmit, formState: {isSubmitting, errors} } = useForm<Character>({
+    defaultValues: newCharacter(),
+    resolver: zodResolver(schema),
   })
 
   const { fields: keyFields } = useFieldArray({
@@ -1104,16 +1112,17 @@ export function NewChar() {
               <Controller
                 name={`password`}
                 control={control}
-                render={({field}) => <TextField id={field.name} type="password" label="パスワード" variant="outlined" {...field} />}
+                render={({field}) => <TextField error={errors.passwordConfirm ? true : false} id={field.name} type="password" label="パスワード" variant="outlined" {...field} />}
                 />
             </Grid>
             <Grid item xs={4}>
               <Controller
                 name={`passwordConfirm`}
                 control={control}
-                render={({field}) => <TextField id={field.name} type="password" label="パスワード(確認)" variant="outlined" {...field} />}
+                render={({field}) => <TextField error={errors.passwordConfirm ? true : false} id={field.name} type="password" label="パスワード(確認)" variant="outlined" {...field} />}
                 />
             </Grid>
+              {errors.passwordConfirm?.message && <p>{errors.passwordConfirm?.message}</p>}
           </Grid>
           <Grid item xs={12}>
             <LoadingButton variant="contained" loading={isSubmitting} onClick={handleSubmit(onSubmit)}>保存してトップに戻る</LoadingButton>
