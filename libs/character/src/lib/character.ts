@@ -13,6 +13,8 @@ export interface Character {
   id: string
   createdAt: Date
   updatedAt: Date
+  password: string
+  passwordConfirm: string
   generalInformation: GeneralInformation
   abilities: Abilities
   bonds: Bond[]
@@ -29,6 +31,8 @@ export function newCharacter(): Character {
     id: uuidv4(),
     createdAt: new Date(),
     updatedAt: new Date(),
+    password: "",
+    passwordConfirm: "",
     generalInformation: newGeneralInformation(),
     abilities: newAbilities(),
     bonds: newBonds(),

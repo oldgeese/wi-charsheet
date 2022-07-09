@@ -1099,6 +1099,22 @@ export function NewChar() {
               </TableContainer>
             </Grid>
           </Grid>
+          <Grid container item spacing={1} direction="column">
+            <Grid item xs={4}>
+              <Controller
+                name={`password`}
+                control={control}
+                render={({field}) => <TextField id={field.name} type="password" label="パスワード" variant="outlined" {...field} />}
+                />
+            </Grid>
+            <Grid item xs={4}>
+              <Controller
+                name={`passwordConfirm`}
+                control={control}
+                render={({field}) => <TextField id={field.name} type="password" label="パスワード(確認)" variant="outlined" {...field} />}
+                />
+            </Grid>
+          </Grid>
           <Grid item xs={12}>
             <LoadingButton variant="contained" loading={isSubmitting} onClick={handleSubmit(onSubmit)}>保存してトップに戻る</LoadingButton>
           </Grid>

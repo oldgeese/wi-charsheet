@@ -59,6 +59,8 @@ const characterConverter: FirestoreDataConverter<Character> = {
       id: snapshot.id,
       createdAt: data['createdAt'],
       updatedAt: data['updatedAt'],
+      password: data['password'],
+      passwordConfirm: data['passwordConfirm'],
       generalInformation: data['generalInformation'],
       abilities: data['abilities'],
       bonds: data['bonds'],
