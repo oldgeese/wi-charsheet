@@ -16,6 +16,7 @@
     "skills": "libs/skills",
     "spells": "libs/spells",
     "ui": "libs/ui",
+    "utils": "libs/utils",
     "weapons": "libs/weapons",
     "wi-charsheet": "apps/wi-charsheet",
     "wi-charsheet-e2e": "apps/wi-charsheet-e2e"

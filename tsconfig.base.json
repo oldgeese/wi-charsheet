@@ -32,6 +32,7 @@
       "@wi-charsheet/skills": ["libs/skills/src/index.ts"],
       "@wi-charsheet/spells": ["libs/spells/src/index.ts"],
       "@wi-charsheet/ui": ["libs/ui/src/index.ts"],
+      "@wi-charsheet/utils": ["libs/utils/src/index.ts"],
       "@wi-charsheet/weapons": ["libs/weapons/src/index.ts"]
     }
   },
