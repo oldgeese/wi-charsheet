@@ -21,6 +21,7 @@ export function ViewChar() {
   return (
     <div>
       <Link to="/">キャラクター一覧に戻る</Link>
+      <br/><br/>
       <Charsheet character={character} />
     </div>
   )
