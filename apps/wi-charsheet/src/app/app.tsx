@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { ThemeProvider } from '@mui/material/styles';
-import { Character, newCharacter } from '@wi-charsheet/character';
+import { Character } from '@wi-charsheet/character';
 import { Dashboard, NewChar } from '@wi-charsheet/ui';
 import { useEffect, useState } from 'react';
 import { theme } from './styles/theme';
@@ -9,6 +9,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom"
+import { getAll } from '@wi-charsheet/service';
 
 const StyledApp = styled.div` `
 
@@ -17,7 +18,11 @@ export function App() {
   const [characters, setCharacters] = useState<Character[]>([])
 
   useEffect(() => {
-    setCharacters([newCharacter()])
+    const getAllCharacters = async () => {
+      const all = await getAll()
+      setCharacters(all)
+    }
+    getAllCharacters()
   }, [])
 
   return (

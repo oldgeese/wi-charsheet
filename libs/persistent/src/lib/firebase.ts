@@ -1,7 +1,7 @@
 import { Character } from "@wi-charsheet/character";
 import { getAnalytics } from "firebase/analytics";
 import { initializeApp } from "firebase/app";
-import { collection, connectFirestoreEmulator, doc, DocumentData, FirestoreDataConverter, getDoc, getDocs, getFirestore, QueryDocumentSnapshot, setDoc, SnapshotOptions } from "firebase/firestore";
+import { collection, connectFirestoreEmulator, doc, DocumentData, FirestoreDataConverter, getDoc, getDocs, getFirestore, orderBy, query, QueryDocumentSnapshot, setDoc, SnapshotOptions } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBBQXkqpuNJufRB1L6hsV-agzhcbmeM10g",
@@ -22,10 +22,10 @@ if (useEmulator) {
   connectFirestoreEmulator(db, 'localhost', 8080)
 }
 
-
 export const getCharacters = async (): Promise<Character[]> => {
   const charactersCollectionRef = collection(db, "characters").withConverter(characterConverter)
-  const snapshot = await getDocs(charactersCollectionRef)
+  const q = query(charactersCollectionRef, orderBy("updatedAt", "desc"))
+  const snapshot = await getDocs(q)
   return snapshot.docs.map(doc => doc.data())
 }
 
