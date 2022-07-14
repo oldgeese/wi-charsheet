@@ -1,4 +1,5 @@
 import { Key } from "@wi-charsheet/key"
+import { v4 as uuidv4 } from "uuid"
 
 export interface GeneralInformation {
   plName: string
@@ -23,9 +24,9 @@ export function newGeneralInformation(): GeneralInformation {
     reason: '',
     appearance: '',
     keys: [
-      { id:'1', name: '', used: false },
-      { id:'2', name: '', used: false },
-      { id:'3', name: '', used: false },
+      { id: uuidv4(), name: '', used: false },
+      { id: uuidv4(), name: '', used: false },
+      { id: uuidv4(), name: '', used: false },
     ]
   }
 }

@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid"
+
 export interface Features {
   consumedExp: number
   features: Feature[]
@@ -15,31 +17,31 @@ export function newFeatures(): Features {
     consumedExp:0,
     features:[
       {
-        id: "1",
+        id: uuidv4(),
         name: "",
         effect: "",
         origin: "種族",
       },
       {
-        id: "2",
+        id: uuidv4(),
         name: "",
         effect: "",
         origin: "種族",
       },
       {
-        id: "3",
+        id: uuidv4(),
         name: "",
         effect: "",
         origin: "取得",
       },
       {
-        id: "4",
+        id: uuidv4(),
         name: "",
         effect: "",
         origin: "取得",
       },
       {
-        id: "5",
+        id: uuidv4(),
         name: "",
         effect: "",
         origin: "取得",

@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid"
+
 interface AbilitiesAndPercent {
   id: string
   leftAbility: string
@@ -26,28 +28,28 @@ export function newWeapons(): Weapons{
   return {
     weapons: [
       {
-        id: "1",
+        id: uuidv4(),
         name: "",
         leftAbility: "",
         rightAbility: "",
         percent: 0,
       },
       {
-        id: "2",
+        id: uuidv4(),
         name: "",
         leftAbility: "",
         rightAbility: "",
         percent: 0,
       },
       {
-        id: "3",
+        id: uuidv4(),
         name: "",
         leftAbility: "",
         rightAbility: "",
         percent: 0,
       },
       {
-        id: "4",
+        id: uuidv4(),
         name: "",
         leftAbility: "",
         rightAbility: "",
@@ -55,19 +57,19 @@ export function newWeapons(): Weapons{
       },
     ],
     evade: {
-      id: "1",
+      id: uuidv4(),
       leftAbility: "",
       rightAbility: "",
       percent: 0,
     },
     defence: {
-      id: "1",
+      id: uuidv4(),
       leftAbility: "",
       rightAbility: "",
       percent: 0,
     },
     spellResistance: {
-      id: "1",
+      id: uuidv4(),
       leftAbility: "",
       rightAbility: "",
       percent: 0,

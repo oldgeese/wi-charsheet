@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid"
+
 export interface FrequentlyUsedSpell {
   id: string,
   modifiedCheck: number
@@ -12,7 +14,7 @@ export interface FrequentlyUsedSpell {
 export function newFrequentlyUsedSpells(): FrequentlyUsedSpell[] {
   return [
     {
-      id: "1",
+      id: uuidv4(),
       modifiedCheck: 0,
       effect: "",
       attribute: "",
@@ -22,7 +24,7 @@ export function newFrequentlyUsedSpells(): FrequentlyUsedSpell[] {
       extension: "",
     },
     {
-      id: "2",
+      id: uuidv4(),
       modifiedCheck: 0,
       effect: "",
       attribute: "",
