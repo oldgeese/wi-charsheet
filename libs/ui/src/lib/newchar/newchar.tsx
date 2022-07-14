@@ -33,7 +33,8 @@ import { newSpell } from 'libs/spells/src/lib/spells';
 import { useEffect, useRef } from 'react';
 import { Control, Controller, ControllerProps, SubmitHandler, useFieldArray, useForm, useWatch } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import * as z from 'zod';
+import { z } from 'zod';
+import { hash } from '@wi-charsheet/utils'
 
 const StyledNewChar = styled('div')``
 
@@ -76,11 +77,7 @@ const SelectAbility = (props: SelectAbilityProps) => {
     />
 }
 
-const schema = z.object({
-  password: z.string(),
-  passwordConfirm: z.string(),
-})
-.refine(data => data.password === data.passwordConfirm, {message: 'パスワードが一致しません。', path: ['passwordConfirm']})
+const schema = z.any().refine(data => data.password === data.passwordConfirm, {message: 'パスワードが一致しません。', path: ['passwordConfirm']})
 
 export function NewChar() {
   const bondsTableRef = useRef(null)
@@ -169,6 +166,11 @@ export function NewChar() {
 
   const onSubmit: SubmitHandler<Character> = async (data) => {
     try {
+      console.log(data)
+      data.password = hash(data.password)
+      data.passwordConfirm = hash(data.passwordConfirm)
+      data.createdAt = new Date()
+      data.updatedAt = new Date()
       await create(data)
       navigate("/")
     } catch (error) {
@@ -1119,10 +1121,9 @@ export function NewChar() {
               <Controller
                 name={`passwordConfirm`}
                 control={control}
-                render={({field}) => <TextField error={errors.passwordConfirm ? true : false} id={field.name} type="password" label="パスワード(確認)" variant="outlined" {...field} />}
+                render={({field}) => <TextField error={errors.passwordConfirm ? true : false} helperText={errors.passwordConfirm?.message && errors.passwordConfirm?.message} id={field.name} type="password" label="パスワード(確認)" variant="outlined" {...field} />}
                 />
             </Grid>
-              {errors.passwordConfirm?.message && <p>{errors.passwordConfirm?.message}</p>}
           </Grid>
           <Grid item xs={12}>
             <LoadingButton variant="contained" loading={isSubmitting} onClick={handleSubmit(onSubmit)}>保存してトップに戻る</LoadingButton>
