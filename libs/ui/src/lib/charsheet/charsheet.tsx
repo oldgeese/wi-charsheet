@@ -3,7 +3,7 @@ import { Abilities, Bonds, Feats, Features, FrequentlyUsedSpells, GeneralInforma
 import styled from 'styled-components'
 
 export interface CharsheetProps {
-  character: Character
+  character: Character | undefined
 }
 
 const StyledCharsheet = styled.div`
@@ -11,6 +11,7 @@ const StyledCharsheet = styled.div`
 
 export function Charsheet(props: CharsheetProps) {
   const p = props.character
+  if (!p) { return <></> }
   return (
     <StyledCharsheet>
       <GeneralInformation generalInformation={p.generalInformation}/>

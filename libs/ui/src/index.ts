@@ -1,3 +1,4 @@
+export * from './lib/viewchar/viewchar';
 export * from './lib/newchar/newchar';
 export * from './lib/dashboard/dashboard';
 export * from './lib/general-information/general-information';

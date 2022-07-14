@@ -188,7 +188,7 @@ export function NewChar() {
           <Link to="/">キャラクター一覧に戻る</Link>
         </Grid>
       </Grid>
-        <br/><br/>
+      <br/><br/>
       <form>
         <Grid container spacing={4}>
           <Grid container item spacing={1}>
