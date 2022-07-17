@@ -97,7 +97,7 @@ export function NewChar() {
       spellsTableRef.current,
     ])
 
-  const { control, handleSubmit, formState: {isSubmitting, errors} } = useForm<Character>({
+  const { control, handleSubmit, formState: {isSubmitting, errors}, trigger } = useForm<Character>({
     defaultValues: newCharacter(),
     resolver: zodResolver(schema),
   })
@@ -1114,14 +1114,18 @@ export function NewChar() {
               <Controller
                 name={`password`}
                 control={control}
-                render={({field}) => <TextField error={errors.passwordConfirm ? true : false} id={field.name} type="password" label="パスワード" variant="outlined" {...field} />}
+                render={({field}) => <TextField error={errors.password? true : false} id={field.name} type="password" label="パスワード" variant="outlined" {...field}
+                  onChange={(e) => {field.onChange(e.target.value);trigger("passwordConfirm")}}
+                  />}
                 />
             </Grid>
             <Grid item xs={4}>
               <Controller
                 name={`passwordConfirm`}
                 control={control}
-                render={({field}) => <TextField error={errors.passwordConfirm ? true : false} helperText={errors.passwordConfirm?.message && errors.passwordConfirm?.message} id={field.name} type="password" label="パスワード(確認)" variant="outlined" {...field} />}
+                render={({field}) => <TextField error={errors.passwordConfirm ? true : false} helperText={errors.passwordConfirm?.message && errors.passwordConfirm?.message} id={field.name} type="password" label="パスワード(確認)" variant="outlined" {...field}
+                  onChange={(e) => {field.onChange(e.target.value);trigger("passwordConfirm")}}
+                  />}
                 />
             </Grid>
           </Grid>
