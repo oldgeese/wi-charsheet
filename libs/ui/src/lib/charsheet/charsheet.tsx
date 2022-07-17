@@ -1,19 +1,16 @@
+import Grid from '@mui/material/Grid'
 import { Character } from '@wi-charsheet/character'
 import { Abilities, Bonds, Feats, Features, FrequentlyUsedSpells, GeneralInformation, Skills, Spells, Weapons } from '@wi-charsheet/ui'
-import styled from 'styled-components'
 
 export interface CharsheetProps {
   character: Character | undefined
 }
 
-const StyledCharsheet = styled.div`
-`;
-
 export function Charsheet(props: CharsheetProps) {
   const p = props.character
   if (!p) { return <></> }
   return (
-    <StyledCharsheet>
+    <Grid spacing={4}>
       <GeneralInformation generalInformation={p.generalInformation}/>
       <Abilities abilities={p.abilities}/>
       <Bonds bonds={p.bonds}/>
@@ -23,7 +20,7 @@ export function Charsheet(props: CharsheetProps) {
       <Skills skills={p.skills}/>
       <Spells spells={p.spells}/>
       <FrequentlyUsedSpells frequentlyUsedSpells={p.frequentlyUsedSpells}/>
-    </StyledCharsheet>
+    </Grid>
   );
 }
 

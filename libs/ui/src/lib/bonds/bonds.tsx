@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import Grid from '@mui/material/Grid';
 import Checkbox from '@mui/material/Checkbox';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -13,12 +13,10 @@ export interface BondsProps {
   bonds: Bond[]
 }
 
-const StyledBonds = styled('div')``
-
 export function Bonds(props: BondsProps) {
   const ps = props.bonds
   return (
-    <StyledBonds>
+    <Grid container item direction="column">
       <Typography variant="h6">▽ボンド</Typography>
       <TableContainer>
         <Table aria-label="bonds table">
@@ -42,7 +40,7 @@ export function Bonds(props: BondsProps) {
           </TableBody>
         </Table>
       </TableContainer>
-    </StyledBonds>
+    </Grid>
   );
 }
 

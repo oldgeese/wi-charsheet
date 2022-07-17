@@ -13,8 +13,6 @@ export interface SkillsProps {
   skills: Data
 }
 
-const StyledSkills = styled('div')``
-
 const ComsumedExp = styled(Typography)`
   padding-left: 16px;
   text-decoration: underline;
@@ -35,7 +33,7 @@ export function Skills(props: SkillsProps) {
   }
 
   return (
-    <StyledSkills>
+    <Grid container item direction="column">
       <div>
         <Typography variant="h6" component="span">▽技能</Typography>
         <ComsumedExp component="span">消費経験点:{p.consumedExp}</ComsumedExp>
@@ -68,7 +66,7 @@ export function Skills(props: SkillsProps) {
           </Grid>
         ))}
       </Grid>
-    </StyledSkills>
+    </Grid>
   );
 }
 

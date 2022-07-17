@@ -1,25 +1,20 @@
-import styled from 'styled-components';
+import Grid from '@mui/material/Grid';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import { FrequentlyUsedSpell } from '@wi-charsheet/frequently-used-spells';
-import { Checkbox } from '@mui/material';
-import React from 'react';
 
 export interface FrequentlyUsedSpellsProps {
   frequentlyUsedSpells: FrequentlyUsedSpell[]
 }
 
-const StyledFrequentlyUsedSpells = styled('div')``
-
 export function FrequentlyUsedSpells(props: FrequentlyUsedSpellsProps) {
   const ps = props.frequentlyUsedSpells
   return (
-    <StyledFrequentlyUsedSpells>
+    <Grid container item direction="column">
       <Typography variant="h6">▽よく使う魔法</Typography>
       <TableContainer>
         <Table aria-label="frequently-used-spells table">
@@ -49,7 +44,7 @@ export function FrequentlyUsedSpells(props: FrequentlyUsedSpellsProps) {
           ))}
         </Table>
       </TableContainer>
-    </StyledFrequentlyUsedSpells>
+    </Grid>
   );
 }
 

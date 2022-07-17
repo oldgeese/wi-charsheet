@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Grid from '@mui/material/Grid';
-import Checkbox from '@mui/material/Checkbox';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -14,17 +13,15 @@ export interface SpellsProps {
   spells: Data
 }
 
-const StyledSpells = styled('div')``
-
 const ComsumedExp = styled(Typography)`
-  padding-left: 16px;
-  text-decoration: underline;
+padding-left: 16px;
+text-decoration: underline;
 ` as typeof Typography
 
 export function Spells(props: SpellsProps) {
   const p = props.spells
   return (
-    <StyledSpells>
+    <Grid container item direction="column">
       <Grid container spacing={1} sx={{alignItems: 'baseline'}}>
         <Grid item>
           <Typography variant="h6">▽魔法</Typography>
@@ -74,7 +71,7 @@ export function Spells(props: SpellsProps) {
           </TableBody>
         </Table>
       </TableContainer>
-    </StyledSpells>
+    </Grid>
   );
 }
 

@@ -13,9 +13,6 @@ export interface GeneralInformationProps {
   generalInformation: Data
 }
 
-const StyledGeneralInformation = styled('div')`
-`
-
 const Title = styled(Typography)`
   border-bottom: 1px solid black;
   display: inline-block;
@@ -63,48 +60,46 @@ const Key = styled('div')`
 export function GeneralInformation(props: GeneralInformationProps) {
   const p = props.generalInformation
   return (
-    <StyledGeneralInformation>
-      <Grid container direction="column" spacing={1}>
-        <Grid item container spacing={1}>
-          <Grid item><Title>キャラクターシート</Title></Grid>
-          <Grid item><PlName>PL:{p.plName}</PlName></Grid>
-        </Grid>
-        <Grid item container>
-          <Grid item container direction="row" spacing={1}>
-            <Grid item container direction="column" spacing={1} xs={8}>
-              <Grid item><PcName><div style={{padding: '30px 20px'}}>名:{p.pcName}</div></PcName></Grid>
-              <Grid item container>
-                <TableContainer>
-                  <Table aria-label="general-information table">
-                    <TableBody>
-                      <TableRow>
-                        <TableCell>種族:{p.race}</TableCell>
-                        <TableCell>年齢:{p.age}</TableCell>
-                        <TableCell>性別:{p.gender}</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell colSpan={3} sx={{height:'46px'}}>&lt;器&gt;の形状と由来:{p.shapeAndOriginOfCapacity}</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell colSpan={3} sx={{height:'46px'}}>フェノメナでいる理由:{p.reason}</TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-              </Grid>
-            </Grid>
-            <Grid item xs={4}>
-              <Appearance><div style={{padding: '8px'}}>外見の特徴など:{p.appearance}</div></Appearance>
+    <Grid container item direction="column" spacing={1}>
+      <Grid item container spacing={1}>
+        <Grid item><Title>キャラクターシート</Title></Grid>
+        <Grid item><PlName>PL:{p.plName}</PlName></Grid>
+      </Grid>
+      <Grid item container>
+        <Grid item container direction="row" spacing={1}>
+          <Grid item container direction="column" spacing={1} xs={8}>
+            <Grid item><PcName><div style={{padding: '30px 20px'}}>名:{p.pcName}</div></PcName></Grid>
+            <Grid item container>
+              <TableContainer>
+                <Table aria-label="general-information table">
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>種族:{p.race}</TableCell>
+                      <TableCell>年齢:{p.age}</TableCell>
+                      <TableCell>性別:{p.gender}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell colSpan={3} sx={{height:'46px'}}>&lt;器&gt;の形状と由来:{p.shapeAndOriginOfCapacity}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell colSpan={3} sx={{height:'46px'}}>フェノメナでいる理由:{p.reason}</TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
             </Grid>
           </Grid>
-        </Grid>
-        <Grid item container spacing={1}>
-          {p.keys.map((key) =>
-            <Grid item xs={4}><Key key={key.id}>キー:{key.name}<Checkbox checked={key.used} sx={{}} disabled/></Key></Grid>
-          )}
+          <Grid item xs={4}>
+            <Appearance><div style={{padding: '8px'}}>外見の特徴など:{p.appearance}</div></Appearance>
+          </Grid>
         </Grid>
       </Grid>
-    </StyledGeneralInformation>
+      <Grid item container spacing={1}>
+        {p.keys.map((key) =>
+          <Grid item xs={4}><Key key={key.id}>キー:{key.name}<Checkbox checked={key.used} sx={{}} disabled/></Key></Grid>
+        )}
+      </Grid>
+    </Grid>
   );
 }
 

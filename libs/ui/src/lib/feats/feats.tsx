@@ -1,3 +1,4 @@
+import Grid from '@mui/material/Grid';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -13,8 +14,6 @@ export interface FeatsProps {
   feats: Data
 }
 
-const StyledFeats = styled('div')``
-
 const ComsumedExp = styled(Typography)`
   padding-left: 16px;
   text-decoration: underline;
@@ -23,7 +22,7 @@ const ComsumedExp = styled(Typography)`
 export function Feats(props: FeatsProps) {
   const p = props.feats
   return (
-    <StyledFeats>
+    <Grid container item direction="column">
       <div>
         <Typography variant="h6" component="span">▽特技</Typography>
         <ComsumedExp component="span">消費経験点:{p.consumedExp}</ComsumedExp>
@@ -48,7 +47,7 @@ export function Feats(props: FeatsProps) {
           </TableBody>
         </Table>
       </TableContainer>
-    </StyledFeats>
+    </Grid>
   );
 }
 
