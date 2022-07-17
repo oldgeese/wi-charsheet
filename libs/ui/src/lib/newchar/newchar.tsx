@@ -7,75 +7,33 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
-import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
-import Select from '@mui/material/Select';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import TextField, { TextFieldProps } from '@mui/material/TextField';
+import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { create } from "@wi-charsheet/service";
+import { hash } from '@wi-charsheet/utils';
 import { newBond } from 'libs/bonds/src/lib/bonds';
 import { Character, newCharacter } from 'libs/character/src/lib/character';
 import { newFeat } from 'libs/feats/src/lib/feats';
 import { newSkill } from 'libs/skills/src/lib/skills';
 import { newSpell } from 'libs/spells/src/lib/spells';
 import { useEffect, useRef } from 'react';
-import { Control, Controller, ControllerProps, SubmitHandler, useFieldArray, useForm, useWatch } from "react-hook-form";
+import { Controller, SubmitHandler, useFieldArray, useForm, useWatch } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { z } from 'zod';
-import { hash } from '@wi-charsheet/utils'
+import { NumberInput, SelectAbility } from '../util/util';
 
 const StyledNewChar = styled('div')``
-
-const NumberInput = (arg: Omit<ControllerProps<Character>, "render"> & TextFieldProps) => (
-  <Controller
-    name={arg.name}
-    control={arg.control}
-    render={({ field }) => (
-      <TextField id={field.name} label={arg.label} variant="outlined" type="number" fullWidth={true} {...field}
-        onChange={(e) => field.onChange(Number.isNaN(parseInt(e.target.value)) ? 0 : parseInt(e.target.value))} />
-    )}
-    />
-)
-
-type SelectAbilityProps = {
-  name: any
-  control: Control<Character, any> | undefined
-}
-
-const SelectAbility = (props: SelectAbilityProps) => {
-  const {name, control} = props
-  return <Controller
-    name={name}
-    control={control}
-    render={({ field }) => <FormControl fullWidth={true}>
-      <InputLabel id={field.name}>能力</InputLabel>
-      <Select
-        id={field.name}
-        label="能力"
-        {...field}
-      >
-        <MenuItem value="筋力">筋力</MenuItem>
-        <MenuItem value="敏捷">敏捷</MenuItem>
-        <MenuItem value="技術">技術</MenuItem>
-        <MenuItem value="知力">知力</MenuItem>
-        <MenuItem value="感性">感性</MenuItem>
-        <MenuItem value="魅力">魅力</MenuItem>
-      </Select>
-    </FormControl>}
-    />
-}
 
 const schema = z.any().refine(data => data.password === data.passwordConfirm, {message: 'パスワードが一致しません。', path: ['passwordConfirm']})
 
