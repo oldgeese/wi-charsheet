@@ -61,6 +61,7 @@ const characterConverter: FirestoreDataConverter<Character> = {
       updatedAt: data['updatedAt'],
       password: data['password'],
       passwordConfirm: data['passwordConfirm'],
+      passwordForUpdate: data['passwordForUpdate'],
       generalInformation: data['generalInformation'],
       abilities: data['abilities'],
       bonds: data['bonds'],

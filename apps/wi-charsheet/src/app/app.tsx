@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { ThemeProvider } from '@mui/material/styles';
 import { Character } from '@wi-charsheet/character';
 import { getAll } from '@wi-charsheet/service';
-import { Dashboard, NewChar, ViewChar } from '@wi-charsheet/ui';
+import { Dashboard, EditChar, NewChar, ViewChar } from '@wi-charsheet/ui';
 import { useEffect, useState } from 'react';
 import {
     BrowserRouter, Route, Routes
@@ -32,9 +32,7 @@ export function App() {
             <Route index element={<Dashboard characters={characters}/>} />
             <Route path="newchar" element={<NewChar />} />
             <Route path="viewchar/:id" element={<ViewChar />} />
-            {/*
             <Route path="editchar/:id" element={<EditChar />} />
-            */}
           </Routes>
         </BrowserRouter>
       </StyledApp>

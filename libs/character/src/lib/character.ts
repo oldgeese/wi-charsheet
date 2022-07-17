@@ -15,6 +15,7 @@ export interface Character {
   updatedAt: Date
   password: string
   passwordConfirm: string
+  passwordForUpdate: string
   generalInformation: GeneralInformation
   abilities: Abilities
   bonds: Bond[]
@@ -33,6 +34,7 @@ export function newCharacter(): Character {
     updatedAt: new Date(),
     password: "",
     passwordConfirm: "",
+    passwordForUpdate: "",
     generalInformation: newGeneralInformation(),
     abilities: newAbilities(),
     bonds: newBonds(),
