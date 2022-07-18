@@ -10,8 +10,8 @@ export const hash = (s: string): string=> {
 
 export const baseSchema = z.object({
   id: z.string(),
-  createdAt: z.date(),
-  updatedAt: z.date(),
+  createdAt: z.number(),
+  updatedAt: z.number(),
   password: z.string(),
   passwordConfirm: z.string(),
   passwordForUpdate: z.string(),

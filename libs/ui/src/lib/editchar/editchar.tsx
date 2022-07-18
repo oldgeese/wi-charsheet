@@ -49,7 +49,7 @@ export function EditChar() {
   const onSubmit: SubmitHandler<Character> = async (data) => {
     try {
       console.log(data)
-      data.updatedAt = new Date()
+      data.updatedAt = Date.now()
       data.passwordForUpdate = ""
       await update(data)
       navigate("/")

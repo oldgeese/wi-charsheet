@@ -30,8 +30,8 @@ export function NewChar() {
       console.log(data)
       data.password = hash(data.password)
       data.passwordConfirm = hash(data.passwordConfirm)
-      data.createdAt = new Date()
-      data.updatedAt = new Date()
+      data.createdAt = Date.now()
+      data.updatedAt = Date.now()
       await create(data)
       navigate("/")
     } catch (error) {

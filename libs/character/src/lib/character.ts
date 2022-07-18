@@ -11,8 +11,8 @@ import { v4 as uuidv4 } from "uuid"
 
 export interface Character {
   id: string
-  createdAt: Date
-  updatedAt: Date
+  createdAt: number
+  updatedAt: number
   password: string
   passwordConfirm: string
   passwordForUpdate: string
@@ -30,8 +30,8 @@ export interface Character {
 export function newCharacter(): Character {
   return {
     id: uuidv4(),
-    createdAt: new Date(),
-    updatedAt: new Date(),
+    createdAt: Date.now(),
+    updatedAt: Date.now(),
     password: "",
     passwordConfirm: "",
     passwordForUpdate: "",
