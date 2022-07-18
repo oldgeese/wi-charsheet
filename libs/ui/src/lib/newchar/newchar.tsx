@@ -6,21 +6,21 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { create } from "@wi-charsheet/service";
 import { InputCharSheet } from '@wi-charsheet/ui';
-import { hash } from '@wi-charsheet/utils';
+import { baseSchema, hash } from '@wi-charsheet/utils';
 import { Character, newCharacter } from 'libs/character/src/lib/character';
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { Controller, FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { z } from 'zod';
 
 const StyledNewChar = styled('div')``
 
-const schema = z.any().refine(data => data.password === data.passwordConfirm, {message: 'パスワードが一致しません。', path: ['passwordConfirm']})
+const schema = baseSchema.refine(data => data.password === data.passwordConfirm, {message: 'パスワードが一致しません。', path: ['passwordConfirm']})
 
 export function NewChar() {
-  const { control, handleSubmit, formState: {isSubmitting, errors}, trigger } = useForm<Character>({
+  const methods = useForm<Character>({
     defaultValues: newCharacter(),
     resolver: zodResolver(schema),
   })
+  const { control, handleSubmit, formState: {isSubmitting, errors}, trigger } = methods
 
   const navigate = useNavigate()
 
@@ -49,34 +49,37 @@ export function NewChar() {
         </Grid>
       </Grid>
       <br/><br/>
-      <form>
-        <Grid container spacing={4}>
-          <InputCharSheet control={control} />
-          <Grid container item spacing={1} direction="column">
-            <Grid item xs={4}>
-              <Controller
-                name={`password`}
-                control={control}
-                render={({field}) => <TextField error={errors.password? true : false} id={field.name} type="password" label="パスワード" variant="outlined" {...field}
-                  onChange={(e) => {field.onChange(e.target.value);trigger("passwordConfirm")}}
-                  />}
-                />
+      <FormProvider {...methods}>
+        <form>
+          <Grid container spacing={4}>
+            <InputCharSheet control={control}/>
+            <Grid container item spacing={1} direction="column">
+              <Grid item xs={4}>
+                <Controller
+                  name={`password`}
+                  control={control}
+                  render={({field}) => <TextField error={errors.password? true : false} id={field.name} type="password" label="パスワード" variant="outlined" {...field}
+                    onChange={(e) => {field.onChange(e.target.value);trigger("passwordConfirm")}}
+                    />}
+                  />
+              </Grid>
+              <Grid item xs={4}>
+                <Controller
+                  name={`passwordConfirm`}
+                  control={control}
+                  render={({field}) => <TextField error={errors.passwordConfirm ? true : false} helperText={errors.passwordConfirm?.message && errors.passwordConfirm?.message} id={field.name} type="password" label="パスワード(確認)" variant="outlined" {...field}
+                    onChange={(e) => {field.onChange(e.target.value);trigger("passwordConfirm")}}
+                    />}
+                  />
+              </Grid>
+                {JSON.stringify(errors)}
             </Grid>
-            <Grid item xs={4}>
-              <Controller
-                name={`passwordConfirm`}
-                control={control}
-                render={({field}) => <TextField error={errors.passwordConfirm ? true : false} helperText={errors.passwordConfirm?.message && errors.passwordConfirm?.message} id={field.name} type="password" label="パスワード(確認)" variant="outlined" {...field}
-                  onChange={(e) => {field.onChange(e.target.value);trigger("passwordConfirm")}}
-                  />}
-                />
+            <Grid item xs={12}>
+              <LoadingButton variant="contained" loading={isSubmitting} onClick={handleSubmit(onSubmit)}>保存してトップに戻る</LoadingButton>
             </Grid>
           </Grid>
-          <Grid item xs={12}>
-            <LoadingButton variant="contained" loading={isSubmitting} onClick={handleSubmit(onSubmit)}>保存してトップに戻る</LoadingButton>
-          </Grid>
-        </Grid>
-      </form>
+        </form>
+      </FormProvider>
     </StyledNewChar>
   );
 }

@@ -1,29 +1,30 @@
 import styled from '@emotion/styled';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { LoadingButton } from '@mui/lab';
-import { Grid, Typography, TextField } from '@mui/material';
+import { Grid, TextField, Typography } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
 import { Character, newCharacter } from '@wi-charsheet/character';
 import { getById, update } from '@wi-charsheet/service';
-import { hash } from '@wi-charsheet/utils';
+import { InputCharSheet } from '@wi-charsheet/ui';
+import { baseSchema, hash } from '@wi-charsheet/utils';
 import { useCallback, useEffect } from 'react';
-import { Controller, SubmitHandler, useForm, useWatch } from 'react-hook-form';
+import { Controller, FormProvider, SubmitHandler, useForm, useWatch } from 'react-hook-form';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { z } from 'zod';
-import { InputCharSheet } from '../charsheet/input_charsheet';
-import CircularProgress from '@mui/material/CircularProgress';
 
 const StyledEditChar = styled('div')``
 
-const schema = z.any().refine(data => {
+const schema = baseSchema.refine(data => {
+  console.log(data)
   const hashedPasswordForUpdate = hash(data.passwordForUpdate)
   return data.password === hashedPasswordForUpdate
 }, {message: 'パスワードが一致しません。', path: ['passwordForUpdate']})
 
 export function EditChar() {
-  const { control, handleSubmit, formState: {isSubmitting, errors}, reset } = useForm<Character>({
+  const methods = useForm<Character>({
     defaultValues: newCharacter(),
     resolver: zodResolver(schema),
   })
+  const { control, handleSubmit, formState: {isSubmitting, errors}, reset } = methods
 
   const { id }= useParams()
 
@@ -73,24 +74,27 @@ export function EditChar() {
           <CircularProgress />
         </Grid>
         :
-        <form>
-          <Grid container spacing={4}>
-            <InputCharSheet control={control} />
-            <Grid container item spacing={1} direction="column">
-              <Grid item xs={4}>
-                <Controller
-                  name={`passwordForUpdate`}
-                  control={control}
-                  render={({field}) => <TextField error={errors.passwordForUpdate? true : false} helperText={errors.passwordForUpdate?.message && errors.passwordForUpdate?.message}  id={field.name} type="password" label="パスワード" variant="outlined" {...field}
-                    />}
-                  />
+        <FormProvider {...methods}>
+          <form>
+            <Grid container spacing={4}>
+              <InputCharSheet control={control} />
+              <Grid container item spacing={1} direction="column">
+                <Grid item xs={4}>
+                  <Controller
+                    name={`passwordForUpdate`}
+                    control={control}
+                    render={({field}) => <TextField error={errors.passwordForUpdate? true : false} helperText={errors.passwordForUpdate?.message && errors.passwordForUpdate?.message}  id={field.name} type="password" label="パスワード" variant="outlined" {...field}
+                      />}
+                    />
+                </Grid>
+                  {JSON.stringify(errors)}
+              </Grid>
+              <Grid item xs={12}>
+                <LoadingButton variant="contained" loading={isSubmitting} onClick={handleSubmit(onSubmit)}>保存してトップに戻る</LoadingButton>
               </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <LoadingButton variant="contained" loading={isSubmitting} onClick={handleSubmit(onSubmit)}>保存してトップに戻る</LoadingButton>
-            </Grid>
-          </Grid>
-        </form>
+          </form>
+        </FormProvider>
     }
     </StyledEditChar>
   );
