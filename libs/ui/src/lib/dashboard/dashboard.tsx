@@ -39,7 +39,7 @@ export function Dashboard(props: DashboardProps) {
           >
             <ListItemButton component={Link} to={`/viewchar/${c.id}`}>
               <ListItemAvatar>
-                <Avatar src={c.generalInformation.appearance} />
+                <Avatar src={c.generalInformation.imageUrl} />
               </ListItemAvatar>
               <ListItemText primary={c.generalInformation.pcName} secondary={`PL名:${c.generalInformation.plName}, 種族:${c.generalInformation.race}`} />
             </ListItemButton>

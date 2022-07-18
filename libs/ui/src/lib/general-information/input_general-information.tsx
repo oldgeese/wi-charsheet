@@ -64,6 +64,12 @@ export const InputGeneralInformation = (props: InputGeneralInformationProps) => 
         control={control}
         render={({ field }) => <TextField id={field.name} label="外見の特徴など" variant="outlined" multiline={true} minRows={2} fullWidth={true} {...field} />} />
     </Grid>
+    <Grid item xs={12}>
+      <Controller
+        name="generalInformation.imageUrl"
+        control={control}
+        render={({ field }) => <TextField id={field.name} label="キャライメージの画像URL" variant="outlined" fullWidth={true} {...field} />} />
+    </Grid>
     {fields.map((item, index) => <Grid item xs={4} key={item.id}>
       <Controller
         name={`generalInformation.keys.${index}.name`}

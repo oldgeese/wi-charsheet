@@ -10,6 +10,7 @@ export interface GeneralInformation {
   shapeAndOriginOfCapacity: string
   reason: string
   appearance: string
+  imageUrl: string
   keys: Key[]
 }
 
@@ -23,6 +24,7 @@ export function newGeneralInformation(): GeneralInformation {
     shapeAndOriginOfCapacity: '',
     reason: '',
     appearance: '',
+    imageUrl: '',
     keys: [
       { id: uuidv4(), name: '', used: false },
       { id: uuidv4(), name: '', used: false },

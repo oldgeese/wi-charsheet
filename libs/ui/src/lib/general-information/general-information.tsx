@@ -42,10 +42,15 @@ const PcName = styled('div')`
 
 const Appearance = styled('div')`
   border: 2px solid black;
-  min-height: 300px;
+  height: 380px;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+`
+
+const CharImage = styled('img')`
+  object-fit: contain;
+  max-height: 100%;
+  max-width: 100%;
 `
 
 const Key = styled('div')`
@@ -84,13 +89,18 @@ export function GeneralInformation(props: GeneralInformationProps) {
                     <TableRow>
                       <TableCell colSpan={3} sx={{height:'46px'}}>フェノメナでいる理由:{p.reason}</TableCell>
                     </TableRow>
+                    <TableRow>
+                      <TableCell colSpan={3} sx={{height:'46px'}}>外見の特徴など:{p.appearance}</TableCell>
+                    </TableRow>
                   </TableBody>
                 </Table>
               </TableContainer>
             </Grid>
           </Grid>
-          <Grid item xs={4}>
-            <Appearance><div style={{padding: '8px'}}>外見の特徴など:{p.appearance}</div></Appearance>
+          <Grid item xs={4} justifyContent="center">
+            <Appearance>
+              <CharImage src={p.imageUrl} alt={p.pcName}/>
+            </Appearance>
           </Grid>
         </Grid>
       </Grid>
