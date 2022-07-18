@@ -1,4 +1,4 @@
-import { TextFieldProps, TextField, FormControl, InputLabel, Select, MenuItem } from "@mui/material"
+import { TextFieldProps, TextField, FormControl, InputLabel, Select, MenuItem, styled, Typography } from "@mui/material"
 import { Character } from "@wi-charsheet/character"
 import { ControllerProps, Controller, Control } from "react-hook-form"
 
@@ -40,3 +40,9 @@ export const SelectAbility = (props: SelectAbilityProps) => {
     </FormControl>}
     />
 }
+
+export const ConsumedExp = styled(Typography)`
+  padding-left: 16px;
+  text-decoration: underline;
+` as typeof Typography
+

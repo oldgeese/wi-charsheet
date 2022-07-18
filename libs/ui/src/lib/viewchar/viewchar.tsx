@@ -1,11 +1,10 @@
+import styled from '@emotion/styled';
+import Grid from '@mui/material/Grid';
 import { Character } from '@wi-charsheet/character';
 import { getById } from '@wi-charsheet/service';
 import { Charsheet } from '@wi-charsheet/ui';
 import { useEffect, useState } from 'react';
-import { Link as RouterLink, useParams } from 'react-router-dom';
-import styled from '@emotion/styled';
-import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
+import { Link, useParams } from 'react-router-dom';
 
 const StyledViewChar = styled('div')`
 @media print {
@@ -33,11 +32,12 @@ export function ViewChar() {
     <StyledViewChar>
       <Grid container spacing={1}>
         <Grid item className="noprint">
-          <Link component={RouterLink} to="/">キャラクター一覧に戻る</Link>
+          <Link to="/">キャラクター一覧に戻る</Link>
         </Grid>
         <Grid item className="noprint">
-          <Link component={RouterLink} to={"/editchar/"+id}>キャラクターを編集する</Link>
+          <Link to={"/editchar/"+id}>キャラクターを編集する</Link>
         </Grid>
+        <div className="noprint"><br/><br/><br/></div>
         <Grid item xs={12}>
           <Charsheet character={character} />
         </Grid>

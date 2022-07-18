@@ -6,7 +6,6 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Grid from '@mui/material/Grid';
 
@@ -26,14 +25,14 @@ const ComsumedExp = styled(Typography)`
 const Exp = styled('div')`
   position: absolute;
   top: 8px;
-  left: 50%;
+  left: 47%;
   min-width: 15rem;
 `
 
 const FullCount = styled('div')`
   position: absolute;
   top: 60px;
-  left: 50%;
+  left: 47%;
   min-width: 15rem;
 `
 
@@ -107,13 +106,11 @@ export function Abilities(props: AbilitiesProps) {
         </CapacityContainer>
         <TableContainer>
           <Table aria-label="ability table">
-            <TableHead>
-              <TableRow>
-                <TableCell>能力値</TableCell>
-                <TableCell>筋力</TableCell>
-              </TableRow>
-            </TableHead>
             <TableBody>
+              <TableRow>
+                <TableCell variant="head">能力値</TableCell>
+                <TableCell variant="head">筋力</TableCell>
+              </TableRow>
               <TableRow>
                 <TableCell variant="head">筋力: {p.strength}</TableCell>
                 <TableCell >{p.strength + p.strength}%</TableCell>

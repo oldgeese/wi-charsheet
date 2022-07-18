@@ -10,7 +10,7 @@ export function Charsheet(props: CharsheetProps) {
   const p = props.character
   if (!p) { return <></> }
   return (
-    <Grid spacing={4}>
+    <Grid container spacing={4}>
       <GeneralInformation generalInformation={p.generalInformation}/>
       <Abilities abilities={p.abilities}/>
       <Bonds bonds={p.bonds}/>

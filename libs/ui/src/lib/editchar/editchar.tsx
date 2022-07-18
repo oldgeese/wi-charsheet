@@ -29,10 +29,8 @@ export function EditChar() {
 
   const resetFormAsync = useCallback(async () => {
     if (id) {
-      console.log("fetching...")
       const character = await getById(id)
       reset(character)
-      console.log("fetched!")
     }
   }, [id, reset])
 
@@ -71,7 +69,7 @@ export function EditChar() {
       </Grid>
       <br/><br/>
       { password === "" ?
-        <Grid container item justifyContent="center">
+        <Grid container justifyContent="center">
           <CircularProgress />
         </Grid>
         :

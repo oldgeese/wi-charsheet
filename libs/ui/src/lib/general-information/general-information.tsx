@@ -24,7 +24,7 @@ const PlName = styled(Typography)`
   display: inline-block;
 ` as typeof Typography
 
-const PcName = styled(Typography)`
+const PcName = styled('div')`
   /* https://css-generators.com/custom-corners/ */
   position: relative;
   z-index: 0;
@@ -46,7 +46,7 @@ const Appearance = styled('div')`
   display: flex;
   justify-content: center;
   align-items: flex-end;
-` as typeof Typography
+`
 
 const Key = styled('div')`
   border: 2px solid black;
@@ -96,7 +96,7 @@ export function GeneralInformation(props: GeneralInformationProps) {
       </Grid>
       <Grid item container spacing={1}>
         {p.keys.map((key) =>
-          <Grid item xs={4}><Key key={key.id}>キー:{key.name}<Checkbox checked={key.used} sx={{}} disabled/></Key></Grid>
+          <Grid item key={key.id} xs={4}><Key>キー:{key.name}<Checkbox checked={key.used} sx={{}} disabled/></Key></Grid>
         )}
       </Grid>
     </Grid>

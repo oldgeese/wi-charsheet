@@ -1,22 +1,16 @@
-import styled from 'styled-components';
 import Grid from '@mui/material/Grid';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import { Spells as Data } from '@wi-charsheet/spells';
+import { ConsumedExp } from '@wi-charsheet/ui';
 
 export interface SpellsProps {
   spells: Data
 }
-
-const ComsumedExp = styled(Typography)`
-padding-left: 16px;
-text-decoration: underline;
-` as typeof Typography
 
 export function Spells(props: SpellsProps) {
   const p = props.spells
@@ -42,22 +36,20 @@ export function Spells(props: SpellsProps) {
           <Typography variant="h6">({p.percent})%</Typography>
         </Grid>
         <Grid item>
-          <ComsumedExp>消費経験点:{p.consumedExp}</ComsumedExp>
+          <ConsumedExp>消費経験点:{p.consumedExp}</ConsumedExp>
         </Grid>
       </Grid>
       <TableContainer>
         <Table aria-label="spells table">
-          <TableHead>
-            <TableRow>
-              <TableCell sx={{width: '10%'}}>判定値</TableCell>
-              <TableCell sx={{width: '20%'}}>効果</TableCell>
-              <TableCell sx={{width: '10%'}}>属性</TableCell>
-              <TableCell sx={{width: '20%'}}>キーワード</TableCell>
-              <TableCell sx={{width: '20%'}}>モーション</TableCell>
-              <TableCell sx={{width: '20%'}}>アイテム</TableCell>
-            </TableRow>
-          </TableHead>
           <TableBody>
+            <TableRow>
+              <TableCell variant="head" sx={{width: '10%'}}>判定値</TableCell>
+              <TableCell variant="head" sx={{width: '20%'}}>効果</TableCell>
+              <TableCell variant="head" sx={{width: '10%'}}>属性</TableCell>
+              <TableCell variant="head" sx={{width: '20%'}}>キーワード</TableCell>
+              <TableCell variant="head" sx={{width: '20%'}}>モーション</TableCell>
+              <TableCell variant="head" sx={{width: '20%'}}>アイテム</TableCell>
+            </TableRow>
             {p.spells.map((s) => (
               <TableRow key={s.id}>
                 <TableCell>{s.check}%</TableCell>
