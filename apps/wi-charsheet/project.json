@@ -16,7 +16,7 @@
         "polyfills": "apps/wi-charsheet/src/polyfills.ts",
         "tsConfig": "apps/wi-charsheet/tsconfig.app.json",
         "assets": [
-          "apps/wi-charsheet/src/favicon.ico",
+          "apps/wi-charsheet/src/favicon.svg",
           "apps/wi-charsheet/src/assets"
         ],
         "styles": [],
