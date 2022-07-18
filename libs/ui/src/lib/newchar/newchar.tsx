@@ -54,8 +54,8 @@ export function NewChar() {
         <form>
           <Grid container spacing={4}>
             <InputCharSheet control={control}/>
-            <Grid container item spacing={1} direction="column">
-              <Grid item xs={4}>
+            <Grid container item spacing={1} direction="row">
+              <Grid item xs={12}>
                 <Controller
                   name={`password`}
                   control={control}
@@ -64,7 +64,7 @@ export function NewChar() {
                     />}
                   />
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={12}>
                 <Controller
                   name={`passwordConfirm`}
                   control={control}
@@ -73,7 +73,7 @@ export function NewChar() {
                     />}
                   />
               </Grid>
-              {Object.keys(errors).length > 0 && <Grid item><Alert severity="error">入力値に誤りがあります。確認してください。</Alert></Grid>}
+              {Object.keys(errors).length > 0 && <Grid item xs={12}><Alert severity="error">入力値に誤りがあります。確認してください。</Alert></Grid>}
             </Grid>
             <Grid item xs={12}>
               <LoadingButton variant="contained" loading={isSubmitting} onClick={handleSubmit(onSubmit)}>保存してトップに戻る</LoadingButton>
