@@ -10,6 +10,7 @@ import { baseSchema, hash } from '@wi-charsheet/utils';
 import { Character, newCharacter } from 'libs/character/src/lib/character';
 import { Controller, FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import Alert from '@mui/material/Alert';
 
 const StyledNewChar = styled('div')``
 
@@ -72,7 +73,7 @@ export function NewChar() {
                     />}
                   />
               </Grid>
-                {JSON.stringify(errors)}
+              {Object.keys(errors).length > 0 && <Grid item><Alert severity="error">入力値に誤りがあります。確認してください。</Alert></Grid>}
             </Grid>
             <Grid item xs={12}>
               <LoadingButton variant="contained" loading={isSubmitting} onClick={handleSubmit(onSubmit)}>保存してトップに戻る</LoadingButton>

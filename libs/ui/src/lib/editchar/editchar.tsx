@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { LoadingButton } from '@mui/lab';
-import { Grid, TextField, Typography } from '@mui/material';
+import { Alert, Grid, TextField, Typography } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Character, newCharacter } from '@wi-charsheet/character';
 import { getById, update } from '@wi-charsheet/service';
@@ -87,7 +87,7 @@ export function EditChar() {
                       />}
                     />
                 </Grid>
-                  {JSON.stringify(errors)}
+                {Object.keys(errors).length > 0 && <Grid item><Alert severity="error">入力値に誤りがあります。確認してください。</Alert></Grid>}
               </Grid>
               <Grid item xs={12}>
                 <LoadingButton variant="contained" loading={isSubmitting} onClick={handleSubmit(onSubmit)}>保存してトップに戻る</LoadingButton>

@@ -1,9 +1,11 @@
 import { TextFieldProps, TextField, FormControl, InputLabel, Select, MenuItem, styled, Typography } from "@mui/material"
 import { Character } from "@wi-charsheet/character"
+import _ from "lodash"
 import { useFormContext, ControllerProps, Controller, Control } from "react-hook-form"
 
+
 export const NumberInput = (arg: Omit<ControllerProps<Character>, "render"> & TextFieldProps) => {
-  const { formState: { errors } } = useFormContext()
+  const { formState: { errors } } = useFormContext<Character>()
 
   return <Controller
     name={arg.name}
@@ -11,8 +13,8 @@ export const NumberInput = (arg: Omit<ControllerProps<Character>, "render"> & Te
     render={({ field }) => (
       <TextField id={field.name} label={arg.label} variant="outlined" type="number" fullWidth={true} {...field}
         onChange={(e) => field.onChange(Number.isNaN(parseInt(e.target.value)) ? 0 : parseInt(e.target.value))}
-        error={errors[field.name] ? true : false}
-        helperText={errors[field.name]?.message}/>
+        error={_.get(errors, field.name) ? true : false}
+        helperText={_.get(errors, field.name)?.message}/>
     )}
     />
 }
