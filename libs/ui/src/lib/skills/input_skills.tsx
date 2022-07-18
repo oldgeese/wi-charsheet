@@ -2,7 +2,7 @@ import autoAnimate from "@formkit/auto-animate"
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Grid, Typography, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, TextField, IconButton, Button } from "@mui/material"
+import { Grid, Typography, TableContainer, Table, TableRow, TableCell, TableBody, TextField, IconButton, Button } from "@mui/material"
 import { Character } from "@wi-charsheet/character"
 import { newSkill } from "@wi-charsheet/skills"
 import { useRef, useEffect } from "react"
