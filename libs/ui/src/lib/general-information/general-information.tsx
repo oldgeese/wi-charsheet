@@ -1,4 +1,6 @@
-import Checkbox from '@mui/material/Checkbox';
+import styled from '@emotion/styled';
+import CheckIcon from '@mui/icons-material/Check';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import Grid from '@mui/material/Grid';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -6,8 +8,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import styled from '@emotion/styled';
-import { GeneralInformation as Data } from '@wi-charsheet/general-information'
+import { GeneralInformation as Data } from '@wi-charsheet/general-information';
 
 export interface GeneralInformationProps {
   generalInformation: Data
@@ -106,7 +107,7 @@ export function GeneralInformation(props: GeneralInformationProps) {
       </Grid>
       <Grid item container spacing={1}>
         {p.keys.map((key) =>
-          <Grid item key={key.id} xs={4}><Key>キー:{key.name}<Checkbox checked={key.used} sx={{}} disabled/></Key></Grid>
+          <Grid item key={key.id} xs={4}><Key>キー:{key.name}{key.used ? <CheckIcon /> : <CheckBoxOutlineBlankIcon />}</Key></Grid>
         )}
       </Grid>
     </Grid>
