@@ -39,14 +39,12 @@ export const InputSkills = (props: InputSkillsProps) => {
     <Grid item xs={12}>
       <TableContainer>
         <Table aria-label="skills table">
-          <TableHead>
-            <TableRow>
-              <TableCell>名称</TableCell>
-              <TableCell>技能値</TableCell>
-              <TableCell>行操作</TableCell>
-            </TableRow>
-          </TableHead>
           <TableBody ref={skillsTableRef}>
+            <TableRow>
+              <TableCell variant="head">名称</TableCell>
+              <TableCell variant="head">技能値</TableCell>
+              <TableCell variant="head">行操作</TableCell>
+            </TableRow>
             {fields.map((p, index) => (
               <TableRow key={p.id}>
                 <TableCell sx={{ width: '30%' }}>

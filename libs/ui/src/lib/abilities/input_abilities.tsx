@@ -1,4 +1,4 @@
-import { Grid, Typography, TableContainer, Table, TableHead, TableRow, TableCell, TableBody } from "@mui/material";
+import { Grid, Typography, TableContainer, Table, TableRow, TableCell, TableBody } from "@mui/material";
 import { Character } from "@wi-charsheet/character";
 import { Control, useWatch } from "react-hook-form";
 import { NumberInput } from "../util/util";
@@ -52,13 +52,11 @@ export const InputAbilities = (props: InputAbilitiesProps) => {
     <Grid item xs={12}>
       <TableContainer>
         <Table aria-label="ability table">
-          <TableHead>
-            <TableRow>
-              <TableCell sx={{ width: "15rem" }}>能力値</TableCell>
-              <TableCell>筋力</TableCell>
-            </TableRow>
-          </TableHead>
           <TableBody>
+            <TableRow>
+              <TableCell variant="head" sx={{ width: "15rem" }}>能力値</TableCell>
+              <TableCell variant="head">筋力</TableCell>
+            </TableRow>
             <TableRow>
               <TableCell variant="head">
                 <NumberInput

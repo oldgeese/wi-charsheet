@@ -1,4 +1,4 @@
-import { Grid, Typography, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, TextField } from "@mui/material";
+import { Grid, Typography, TableContainer, Table, TableRow, TableCell, TableBody, TextField } from "@mui/material";
 import { Character } from "@wi-charsheet/character";
 import { Control, useFieldArray, Controller } from "react-hook-form";
 import { NumberInput } from "../util/util";
@@ -27,14 +27,12 @@ export const InputFeatures = (props: InputFeaturesProps) => {
     <Grid item xs={12}>
       <TableContainer>
         <Table aria-label="features table">
-          <TableHead>
-            <TableRow>
-              <TableCell>名称</TableCell>
-              <TableCell>効果</TableCell>
-              <TableCell>由来</TableCell>
-            </TableRow>
-          </TableHead>
           <TableBody>
+            <TableRow>
+              <TableCell variant="head">名称</TableCell>
+              <TableCell variant="head">効果</TableCell>
+              <TableCell variant="head">由来</TableCell>
+            </TableRow>
             {fields.map((p, index) => (
               <TableRow key={p.id}>
                 <TableCell sx={{ width: '20%' }}>

@@ -2,7 +2,7 @@ import autoAnimate from "@formkit/auto-animate";
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Button, Checkbox, FormControlLabel, Grid, IconButton, Radio, RadioGroup, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
+import { Button, Checkbox, FormControlLabel, Grid, IconButton, Radio, RadioGroup, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Typography } from "@mui/material";
 import { newBond } from "@wi-charsheet/bonds";
 import { Character } from "@wi-charsheet/character";
 import { useEffect, useRef } from "react";
@@ -33,16 +33,14 @@ export const InputBonds = (props: InputBondsProps) => {
     <Grid item xs={12}>
       <TableContainer>
         <Table aria-label="bonds table">
-          <TableHead>
-            <TableRow>
-              <TableCell>名前</TableCell>
-              <TableCell>関係</TableCell>
-              <TableCell>種別</TableCell>
-              <TableCell align="center">使用</TableCell>
-              <TableCell>行操作</TableCell>
-            </TableRow>
-          </TableHead>
           <TableBody ref={bondsTableRef}>
+            <TableRow>
+              <TableCell variant="head">名前</TableCell>
+              <TableCell variant="head">関係</TableCell>
+              <TableCell variant="head">種別</TableCell>
+              <TableCell variant="head" align="center">使用</TableCell>
+              <TableCell variant="head">行操作</TableCell>
+            </TableRow>
             {fields.map((p, index) => (
               <TableRow key={p.id}>
                 <TableCell sx={{ width: '15%' }}>

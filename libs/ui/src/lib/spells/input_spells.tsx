@@ -2,7 +2,7 @@ import autoAnimate from "@formkit/auto-animate"
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Grid, Typography, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, TextField, IconButton, Button } from "@mui/material"
+import { Grid, Typography, TableContainer, Table, TableRow, TableCell, TableBody, TextField, IconButton, Button } from "@mui/material"
 import { Character } from "@wi-charsheet/character"
 import { newSpell } from "@wi-charsheet/spells"
 import { useRef, useEffect } from "react"
@@ -67,18 +67,16 @@ export const InputSpells = (props: InputSpellsProps) => {
     <Grid item xs={12}>
       <TableContainer>
         <Table aria-label="spells table">
-          <TableHead>
-            <TableRow>
-              <TableCell>判定値</TableCell>
-              <TableCell>効果</TableCell>
-              <TableCell>属性</TableCell>
-              <TableCell>キーワード</TableCell>
-              <TableCell>モーション</TableCell>
-              <TableCell>アイテム</TableCell>
-              <TableCell>行操作</TableCell>
-            </TableRow>
-          </TableHead>
           <TableBody ref={spellsTableRef}>
+            <TableRow>
+              <TableCell variant="head">判定値</TableCell>
+              <TableCell variant="head">効果</TableCell>
+              <TableCell variant="head">属性</TableCell>
+              <TableCell variant="head">キーワード</TableCell>
+              <TableCell variant="head">モーション</TableCell>
+              <TableCell variant="head">アイテム</TableCell>
+              <TableCell variant="head">行操作</TableCell>
+            </TableRow>
             {fields.map((p, index) => (
               <TableRow key={p.id}>
                 <TableCell sx={{ width: '10%' }}>

@@ -2,7 +2,7 @@ import autoAnimate from "@formkit/auto-animate"
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Button, Grid, IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material"
+import { Button, Grid, IconButton, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Typography } from "@mui/material"
 import { Character } from "@wi-charsheet/character"
 import { newFeat } from "@wi-charsheet/feats"
 import { useEffect, useRef } from "react"
@@ -39,15 +39,13 @@ export const InputFeats = (props: InputFeatsProps) => {
     <Grid item xs={12}>
       <TableContainer>
         <Table aria-label="feats table">
-          <TableHead>
-            <TableRow>
-              <TableCell>名称</TableCell>
-              <TableCell>効果</TableCell>
-              <TableCell>条件</TableCell>
-              <TableCell>行操作</TableCell>
-            </TableRow>
-          </TableHead>
           <TableBody ref={featsTableRef}>
+            <TableRow>
+              <TableCell variant="head">名称</TableCell>
+              <TableCell variant="head">効果</TableCell>
+              <TableCell variant="head">条件</TableCell>
+              <TableCell variant="head">行操作</TableCell>
+            </TableRow>
             {fields.map((p, index) => (
               <TableRow key={p.id}>
                 <TableCell sx={{ width: '20%' }}>
