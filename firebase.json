@@ -3,13 +3,6 @@
     "rules": "apps/firebase/firestore.rules",
     "indexes": "apps/firebase/firestore.indexes.json"
   },
-  "functions": {
-    "source": "dist/apps/firebase",
-    "predeploy": [
-      "nx lint firebase",
-      "nx build firebase"
-    ]
-  },
   "hosting": {
     "public": "dist/apps/wi-charsheet",
     "ignore": [
@@ -25,9 +18,6 @@
     ]
   },
   "emulators": {
-    "functions": {
-      "port": 5001
-    },
     "firestore": {
       "port": 8080
     },
