@@ -23,7 +23,7 @@ export function Dashboard(props: DashboardProps) {
     <StyledDashboard>
       <Grid container item justifyContent="center">
         <Typography variant="h4" align="center" color="textPrimary">
-          Wishful Instruments キャラクターデータベース
+          ウィッシュフル・インストルメントRPG キャラクターデータベース
         </Typography>
         <Grid container item justifyContent="center">
           <Button variant="contained" component={Link} to="/newchar">新規作成</Button>
