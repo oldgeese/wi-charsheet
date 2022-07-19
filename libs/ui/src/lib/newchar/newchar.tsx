@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { create } from "@wi-charsheet/service";
-import { InputCharSheet } from '@wi-charsheet/ui';
+import { InputCharSheet, usePrompt } from '@wi-charsheet/ui';
 import { baseSchema, hash } from '@wi-charsheet/utils';
 import { Character, newCharacter } from 'libs/character/src/lib/character';
 import { Controller, FormProvider, SubmitHandler, useForm } from "react-hook-form";
@@ -21,7 +21,7 @@ export function NewChar() {
     defaultValues: newCharacter(),
     resolver: zodResolver(schema),
   })
-  const { control, handleSubmit, formState: {isSubmitting, errors}, trigger } = methods
+  const { control, handleSubmit, formState: {isDirty, isSubmitting, errors}, trigger } = methods
 
   const navigate = useNavigate()
 
@@ -38,6 +38,8 @@ export function NewChar() {
       console.error('Error writing document: ', error)
     }
   }
+
+  usePrompt("編集中のデータがあります。本当にページを離れますか？", isDirty)
 
   return (
     <StyledNewChar>

@@ -1,5 +1,5 @@
 import jsSHA from "jssha";
-import { z } from "zod"
+import { z } from "zod";
 
 export const hash = (s: string): string=> {
   const shaObj = new jsSHA("SHA-512", "TEXT", { encoding: "UTF8" });

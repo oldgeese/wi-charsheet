@@ -5,7 +5,7 @@ import { Alert, Grid, TextField, Typography } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Character, newCharacter } from '@wi-charsheet/character';
 import { getById, update } from '@wi-charsheet/service';
-import { InputCharSheet } from '@wi-charsheet/ui';
+import { InputCharSheet, usePrompt } from '@wi-charsheet/ui';
 import { baseSchema, hash } from '@wi-charsheet/utils';
 import { useCallback, useEffect } from 'react';
 import { Controller, FormProvider, SubmitHandler, useForm, useWatch } from 'react-hook-form';
@@ -23,7 +23,7 @@ export function EditChar() {
     defaultValues: newCharacter(),
     resolver: zodResolver(schema),
   })
-  const { control, handleSubmit, formState: {isSubmitting, errors}, reset } = methods
+  const { control, handleSubmit, formState: {isDirty, isSubmitting, errors}, reset } = methods
 
   const { id }= useParams()
 
@@ -56,6 +56,8 @@ export function EditChar() {
       console.error('Error writing document: ', error)
     }
   }
+
+  usePrompt("編集中のデータがあります。本当にページを離れますか？", isDirty)
 
   return (
     <StyledEditChar>
