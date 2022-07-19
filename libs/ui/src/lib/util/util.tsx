@@ -5,6 +5,8 @@ import { useCallback, useContext, useEffect } from 'react'
 import { Control, Controller, ControllerProps, useFormContext } from "react-hook-form"
 import { Navigator, UNSAFE_NavigationContext as NavigationContext } from 'react-router-dom'
 import { Blocker, History, Transition } from 'history'
+import ReactDOM from "react-dom"
+import ExitDialog from "./ExitDialog"
 
 export const NumberInput = (arg: Omit<ControllerProps<Character>, "render"> & TextFieldProps) => {
   const { formState: { errors } } = useFormContext<Character>()
@@ -54,11 +56,6 @@ export const ConsumedExp = styled(Typography)`
   text-decoration: underline;
 ` as typeof Typography
 
-type UseBeforeUnloadProps = {
-  when: boolean
-  message: string
-}
-
 /**
  * These hooks re-implement the now removed useBlocker and usePrompt hooks in 'react-router-dom'.
  * Thanks for the idea @piecyk https://github.com/remix-run/react-router/issues/8139#issuecomment-953816315
@@ -103,13 +100,36 @@ export function useBlocker( blocker: Blocker, when = true ): void {
  * @param  when
  */
 export function usePrompt( message: string, when = true ) {
-    const blocker = useCallback(
-        ( tx:Transition ): void => {
-            // eslint-disable-next-line no-alert
-            if ( window.confirm( message ) ) tx.retry();
-        },
-        [ message ]
-    );
+  const blocker = useCallback(
+    (tx: Transition) => {
+      const element = document.createElement('div');
+      element.setAttribute('id', 'prompt-dialog-container');
+      element.setAttribute('aria-hidden', 'true');
 
-    useBlocker( blocker, when );
+      const closePrompt = (state: boolean) => {
+        if (element) {
+          ReactDOM.unmountComponentAtNode(element);
+        }
+        if (!state) {
+          document.body.removeChild(element);
+        } else {
+          tx.retry();
+        }
+      };
+
+      document.body.appendChild(element);
+      ReactDOM.render(
+          <ExitDialog
+            open={!!message}
+            message={message}
+            onClose={() => closePrompt(false)}
+            onConfirm={() => closePrompt(true)}
+            />,
+        element
+      );
+    },
+    [ message ]
+  );
+
+  useBlocker( blocker, when );
 }
