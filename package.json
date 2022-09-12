@@ -51,7 +51,7 @@
     "@nrwl/node": "14.2.4",
     "@nrwl/react": "14.2.4",
     "@nrwl/storybook": "14.2.4",
-    "@nrwl/web": "14.2.4",
+    "@nrwl/web": "14.7.4",
     "@nrwl/workspace": "14.2.4",
     "@storybook/addon-essentials": "~6.4.12",
     "@storybook/builder-webpack5": "~6.4.12",
