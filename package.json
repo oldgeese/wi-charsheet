@@ -8,7 +8,8 @@
     "test": "nx test",
     "storybook": "nx storybook wi-charsheet",
     "storybook:ui": "nx storybook ui",
-    "emu": "firebase emulators:start --import=./data --export-on-exit"
+    "emu": "firebase emulators:start --import=./data --export-on-exit",
+    "deploy": "yarn build && yarn run firebase deploy"
   },
   "private": true,
   "dependencies": {
