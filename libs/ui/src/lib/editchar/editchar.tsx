@@ -47,9 +47,10 @@ export function EditChar() {
 
   const onSubmit: SubmitHandler<Character> = async (data) => {
     try {
-      console.log(data)
       data.updatedAt = Date.now()
       data.passwordForUpdate = ""
+      console.log(data)
+      reset(data) // for reset isDirty
       await update(data)
       navigate("/")
     } catch (error) {
