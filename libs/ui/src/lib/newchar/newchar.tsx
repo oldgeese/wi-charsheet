@@ -21,17 +21,18 @@ export function NewChar() {
     defaultValues: newCharacter(),
     resolver: zodResolver(schema),
   })
-  const { control, handleSubmit, formState: {isDirty, isSubmitting, errors}, trigger } = methods
+  const { reset, control, handleSubmit, formState: {isDirty, isSubmitting, errors}, trigger } = methods
 
   const navigate = useNavigate()
 
   const onSubmit: SubmitHandler<Character> = async (data) => {
     try {
-      console.log(data)
       data.password = hash(data.password)
       data.passwordConfirm = hash(data.passwordConfirm)
       data.createdAt = Date.now()
       data.updatedAt = Date.now()
+      console.log(data)
+      reset(data) // for reset isDirty
       await create(data)
       navigate("/")
     } catch (error) {
