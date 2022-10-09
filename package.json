@@ -50,7 +50,7 @@
     "@nrwl/jest": "14.2.4",
     "@nrwl/linter": "14.2.4",
     "@nrwl/node": "14.2.4",
-    "@nrwl/react": "14.2.4",
+    "@nrwl/react": "14.8.2",
     "@nrwl/storybook": "14.7.4",
     "@nrwl/web": "14.7.13",
     "@nrwl/workspace": "14.2.4",
