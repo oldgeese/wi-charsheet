@@ -18832,7 +18832,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nx-cloud@npm:16.4.0, nx-cloud@npm:latest":
+"nx-cloud@npm:16.4.0":
   version: 16.4.0
   resolution: "nx-cloud@npm:16.4.0"
   dependencies:
@@ -24405,7 +24405,7 @@ __metadata:
     jssha: ^3.2.0
     lodash: ^4.17.21
     nx: 16.8.1
-    nx-cloud: latest
+    nx-cloud: 16.4.0
     prettier: 2.7.1
     react: ^18.1.0
     react-dom: ^18.1.0

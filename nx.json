@@ -1,95 +1,13 @@
 {
-  "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "wi-charsheet",
-  "affected": {
-    "defaultBase": "main"
-  },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "nx-cloud",
+      "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "test"
-        ],
-        "accessToken": "YTE2NTk4MzUtZWJhMi00ZjQ4LWI3ZWItNjU1MDg4NDZhMWU3fHJlYWQtd3JpdGU="
+        "cacheableOperations": []
       }
     }
   },
-  "generators": {
-    "@nx/react": {
-      "application": {
-        "style": "@emotion/styled",
-        "linter": "eslint",
-        "babel": true
-      },
-      "component": {
-        "style": "@emotion/styled"
-      },
-      "library": {
-        "style": "@emotion/styled",
-        "linter": "eslint"
-      }
-    }
-  },
-  "defaultProject": "wi-charsheet",
-  "targetDefaults": {
-    "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "inputs": [
-        "production",
-        "^production"
-      ]
-    },
-    "lint": {
-      "inputs": [
-        "default",
-        "{workspaceRoot}/.eslintrc.json"
-      ]
-    },
-    "e2e": {
-      "inputs": [
-        "default",
-        "^production"
-      ]
-    },
-    "build-storybook": {
-      "inputs": [
-        "default",
-        "^production",
-        "{workspaceRoot}/.storybook/**/*",
-        "{projectRoot}/.storybook/**/*",
-        "{projectRoot}/tsconfig.storybook.json"
-      ]
-    },
-    "test": {
-      "inputs": [
-        "default",
-        "^production",
-        "{workspaceRoot}/jest.preset.js"
-      ]
-    }
-  },
-  "namedInputs": {
-    "default": [
-      "{projectRoot}/**/*",
-      "sharedGlobals"
-    ],
-    "sharedGlobals": [
-      "{workspaceRoot}/babel.config.json"
-    ],
-    "production": [
-      "default",
-      "!{projectRoot}/.eslintrc.json",
-      "!{projectRoot}/.storybook/**/*",
-      "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
-      "!{projectRoot}/tsconfig.storybook.json",
-      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
-      "!{projectRoot}/tsconfig.spec.json",
-      "!{projectRoot}/jest.config.[jt]s",
-      "!{projectRoot}/src/test-setup.[jt]s"
-    ]
+  "affected": {
+    "defaultBase": "main"
   }
 }
