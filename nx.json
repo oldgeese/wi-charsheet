@@ -3,33 +3,11 @@
     "default": {
       "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "test"]
+        "cacheableOperations": ["build", "test", "build-storybook"]
       }
     }
-  },
-  "workspaceLayout": {
-    "projectNameAndRootFormat": "derived",
-    "appsDir": "apps",
-    "libsDir": "libs"
   },
   "affected": {
     "defaultBase": "main"
-  },
-  "generators": {
-    "@nx/react": {
-      "application": {
-        "style": "css",
-        "linter": "eslint",
-        "bundler": "webpack",
-        "babel": true
-      },
-      "component": {
-        "style": "css"
-      },
-      "library": {
-        "style": "css",
-        "linter": "eslint"
-      }
-    }
   }
 }
