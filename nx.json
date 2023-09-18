@@ -10,10 +10,7 @@
       "options": {
         "cacheableOperations": [
           "build",
-          "lint",
-          "test",
-          "e2e",
-          "build-storybook"
+          "test"
         ],
         "accessToken": "YTE2NTk4MzUtZWJhMi00ZjQ4LWI3ZWItNjU1MDg4NDZhMWU3fHJlYWQtd3JpdGU="
       }
