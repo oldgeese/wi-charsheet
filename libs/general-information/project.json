@@ -1,18 +1,19 @@
 {
+  "name": "general-information",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/general-information/src",
   "projectType": "library",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/general-information/**/*.ts"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/general-information"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/general-information"],
       "options": {
         "jestConfig": "libs/general-information/jest.config.ts",
         "passWithNoTests": true

@@ -1,10 +1,11 @@
 {
+  "name": "wi-charsheet",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/wi-charsheet/src",
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/web:webpack",
+      "executor": "@nx/web:webpack",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
@@ -21,7 +22,7 @@
         ],
         "styles": [],
         "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "webpackConfig": "@nx/react/plugins/webpack"
       },
       "configurations": {
         "development": {
@@ -47,7 +48,7 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/web:dev-server",
+      "executor": "@nx/web:dev-server",
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "wi-charsheet:build",
@@ -64,28 +65,25 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/wi-charsheet/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/wi-charsheet"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/wi-charsheet"],
       "options": {
         "jestConfig": "apps/wi-charsheet/jest.config.ts",
         "passWithNoTests": true
       }
     },
     "storybook": {
-      "executor": "@nrwl/storybook:storybook",
+      "executor": "@nx/storybook:storybook",
       "options": {
-        "uiFramework": "@storybook/react",
         "port": 4400,
-        "config": {
-          "configFolder": "apps/wi-charsheet/.storybook"
-        }
+        "configDir": "apps/wi-charsheet/.storybook"
       },
       "configurations": {
         "ci": {
@@ -94,14 +92,11 @@
       }
     },
     "build-storybook": {
-      "executor": "@nrwl/storybook:build",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
       "options": {
-        "uiFramework": "@storybook/react",
-        "outputPath": "dist/storybook/wi-charsheet",
-        "config": {
-          "configFolder": "apps/wi-charsheet/.storybook"
-        }
+        "configDir": "apps/wi-charsheet/.storybook",
+        "outputDir": "dist/storybook/wi-charsheet"
       },
       "configurations": {
         "ci": {

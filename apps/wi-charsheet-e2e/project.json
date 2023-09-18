@@ -1,10 +1,11 @@
 {
+  "name": "wi-charsheet-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/wi-charsheet-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
-      "executor": "@nrwl/cypress:cypress",
+      "executor": "@nx/cypress:cypress",
       "options": {
         "cypressConfig": "apps/wi-charsheet-e2e/cypress.json",
         "devServerTarget": "wi-charsheet:serve:development"
@@ -16,7 +17,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/wi-charsheet-e2e/**/*.{js,ts}"]
