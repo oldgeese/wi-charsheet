@@ -5,14 +5,17 @@ import { getAll } from '@wi-charsheet/service';
 import { Dashboard, EditChar, NewChar, ViewChar } from '@wi-charsheet/ui';
 import { useEffect, useState } from 'react';
 import {
-    BrowserRouter, Route, Routes
+    Route, Routes, createBrowserRouter, RouterProvider,
 } from "react-router-dom";
 import { theme } from './styles/theme';
 
 const StyledApp = styled.div` `
 
-export function App() {
+const router = createBrowserRouter([
+  { path: "*", Component: Root },
+])
 
+function Root() {
   const [characters, setCharacters] = useState<Character[]>([])
 
   useEffect(() => {
@@ -24,17 +27,21 @@ export function App() {
   }, [])
 
   return (
+    <Routes>
+      <Route path="/" element={<Dashboard characters={characters}/>} />
+      <Route index element={<Dashboard characters={characters}/>} />
+      <Route path="newchar" element={<NewChar />} />
+      <Route path="viewchar/:id" element={<ViewChar />} />
+      <Route path="editchar/:id" element={<EditChar />} />
+    </Routes>
+  )
+}
+
+export function App() {
+  return (
     <ThemeProvider theme={theme}>
       <StyledApp>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Dashboard characters={characters}/>} />
-            <Route index element={<Dashboard characters={characters}/>} />
-            <Route path="newchar" element={<NewChar />} />
-            <Route path="viewchar/:id" element={<ViewChar />} />
-            <Route path="editchar/:id" element={<EditChar />} />
-          </Routes>
-        </BrowserRouter>
+        <RouterProvider router={router} />
       </StyledApp>
     </ThemeProvider>
   );

@@ -1,6 +1,5 @@
 export * from './lib/editchar/editchar';
 export * from './lib/util/util';
-export * from './lib/util/ExitDialog';
 export * from './lib/viewchar/viewchar';
 export * from './lib/newchar/newchar';
 export * from './lib/dashboard/dashboard';
