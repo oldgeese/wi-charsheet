@@ -1,18 +1,19 @@
 {
+  "name": "bonds",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/bonds/src",
   "projectType": "library",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/bonds/**/*.ts"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/bonds"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/bonds"],
       "options": {
         "jestConfig": "libs/bonds/jest.config.ts",
         "passWithNoTests": true

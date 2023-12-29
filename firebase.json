@@ -4,7 +4,7 @@
     "indexes": "apps/firebase/firestore.indexes.json"
   },
   "hosting": {
-    "public": "dist/apps/wi-charsheet",
+    "public": "dist/apps/charsheet",
     "ignore": [
       "firebase.json",
       "**/.*",

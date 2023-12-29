@@ -5,11 +5,11 @@ import { Alert, Grid, TextField, Typography } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Character, newCharacter } from '@wi-charsheet/character';
 import { getById, update } from '@wi-charsheet/service';
-import { InputCharSheet, usePrompt } from '@wi-charsheet/ui';
+import { InputCharSheet } from '@wi-charsheet/ui';
 import { baseSchema, hash } from '@wi-charsheet/utils';
 import { useCallback, useEffect } from 'react';
 import { Controller, FormProvider, SubmitHandler, useForm, useWatch } from 'react-hook-form';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams, unstable_usePrompt as usePrompt } from 'react-router-dom';
 
 const StyledEditChar = styled('div')``
 
@@ -58,7 +58,7 @@ export function EditChar() {
     }
   }
 
-  usePrompt("編集中のデータがあります。本当にページを離れますか？", isDirty)
+  usePrompt({ when: isDirty, message: "編集中のデータがあります。本当にページを離れますか？"})
 
   return (
     <StyledEditChar>

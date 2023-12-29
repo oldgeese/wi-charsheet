@@ -5,11 +5,11 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { create } from "@wi-charsheet/service";
-import { InputCharSheet, usePrompt } from '@wi-charsheet/ui';
+import { InputCharSheet } from '@wi-charsheet/ui';
 import { baseSchema, hash } from '@wi-charsheet/utils';
 import { Character, newCharacter } from 'libs/character/src/lib/character';
 import { Controller, FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, unstable_usePrompt as usePrompt } from "react-router-dom";
 import Alert from '@mui/material/Alert';
 
 const StyledNewChar = styled('div')``
@@ -40,7 +40,7 @@ export function NewChar() {
     }
   }
 
-  usePrompt("編集中のデータがあります。本当にページを離れますか？", isDirty)
+  usePrompt({ when: isDirty, message: "編集中のデータがあります。本当にページを離れますか？" })
 
   return (
     <StyledNewChar>

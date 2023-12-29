@@ -1,6 +1,6 @@
 import {ThemeProvider} from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
-import { theme } from '/apps/wi-charsheet/src/app/styles/theme'
+import { theme } from '/apps/charsheet/src/app/styles/theme'
 
 export const decorators = [
     (Story) => {

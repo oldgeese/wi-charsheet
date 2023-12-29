@@ -1,18 +1,19 @@
 {
+  "name": "spells",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/spells/src",
   "projectType": "library",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/spells/**/*.ts"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/spells"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/spells"],
       "options": {
         "jestConfig": "libs/spells/jest.config.ts",
         "passWithNoTests": true
