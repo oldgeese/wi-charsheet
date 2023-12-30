@@ -5,7 +5,7 @@ export interface GeneralInformation {
   plName: string
   pcName: string
   race: string
-  age: number
+  age: string
   gender: string
   shapeAndOriginOfCapacity: string
   reason: string
@@ -19,7 +19,7 @@ export function newGeneralInformation(): GeneralInformation {
     plName: "",
     pcName: "",
     race: "",
-    age: 0,
+    age: "",
     gender: "",
     shapeAndOriginOfCapacity: '',
     reason: '',

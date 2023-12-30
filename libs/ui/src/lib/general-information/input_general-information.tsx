@@ -1,7 +1,6 @@
 import { Grid, TextField, Checkbox } from "@mui/material";
 import { Character } from "@wi-charsheet/character";
 import { Control, useFieldArray, Controller } from "react-hook-form";
-import { NumberInput } from "../util/util";
 
 export interface InputGeneralInformationProps {
   control: Control<Character, any>
@@ -35,10 +34,10 @@ export const InputGeneralInformation = (props: InputGeneralInformationProps) => 
         render={({ field }) => <TextField id={field.name} label="種族" variant="outlined" fullWidth={true} {...field} />} />
     </Grid>
     <Grid item xs={4}>
-      <NumberInput
+      <Controller
         name="generalInformation.age"
         control={control}
-        label="年齢" />
+        render={({ field }) => <TextField id={field.name} label="年齢" variant="outlined" fullWidth={true} {...field} />} />
     </Grid>
     <Grid item xs={4}>
       <Controller
