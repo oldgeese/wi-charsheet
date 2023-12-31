@@ -1,3 +1,4 @@
+export * from './lib/free-input/free-input';
 export * from './lib/editchar/editchar';
 export * from './lib/util/util';
 export * from './lib/viewchar/viewchar';
