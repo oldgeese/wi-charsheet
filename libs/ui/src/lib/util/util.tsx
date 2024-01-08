@@ -11,7 +11,7 @@ export const NumberInput = (arg: Omit<ControllerProps<Character>, "render"> & Te
     control={arg.control}
     render={({ field }) => (
       <TextField id={field.name} label={arg.label} variant="outlined" type="number" fullWidth={true} {...field}
-        onChange={(e) => field.onChange(Number.isNaN(parseInt(e.target.value)) ? 0 : parseInt(e.target.value))}
+        onChange={(e) => field.onChange(Number.isNaN(parseInt(e.target.value)) ? "" : parseInt(e.target.value))}
         error={_.get(errors, field.name) ? true : false}
         helperText={_.get(errors, field.name)?.message}/>
     )}

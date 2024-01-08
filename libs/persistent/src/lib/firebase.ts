@@ -1,4 +1,14 @@
+import { newAbilities } from "@wi-charsheet/abilities";
+import { newBonds } from "@wi-charsheet/bonds";
 import { Character } from "@wi-charsheet/character";
+import { newFeats } from "@wi-charsheet/feats";
+import { newFeatures } from "@wi-charsheet/features";
+import { newFreeInput } from "@wi-charsheet/free-input";
+import { newFrequentlyUsedSpells } from "@wi-charsheet/frequently-used-spells";
+import { newGeneralInformation } from "@wi-charsheet/general-information";
+import { newSkills } from "@wi-charsheet/skills";
+import { newSpells } from "@wi-charsheet/spells";
+import { newWeapons } from "@wi-charsheet/weapons";
 import { getAnalytics } from "firebase/analytics";
 import { initializeApp } from "firebase/app";
 import { collection, connectFirestoreEmulator, doc, DocumentData, FirestoreDataConverter, getDoc, getDocs, getFirestore, orderBy, query, QueryDocumentSnapshot, setDoc, SnapshotOptions } from "firebase/firestore";
@@ -62,15 +72,16 @@ const characterConverter: FirestoreDataConverter<Character> = {
       password: data['password'],
       passwordConfirm: data['passwordConfirm'],
       passwordForUpdate: data['passwordForUpdate'],
-      generalInformation: data['generalInformation'],
-      abilities: data['abilities'],
-      bonds: data['bonds'],
-      features: data['features'],
-      feats: data['feats'],
-      weapons: data['weapons'],
-      skills: data['skills'],
-      spells: data['spells'],
-      frequentlyUsedSpells: data['frequentlyUsedSpells'],
+      generalInformation: data['generalInformation'] || newGeneralInformation(),
+      abilities: data['abilities'] || newAbilities(),
+      bonds: data['bonds'] || newBonds(),
+      features: data['features'] || newFeatures(),
+      feats: data['feats'] || newFeats(),
+      weapons: data['weapons'] || newWeapons(),
+      skills: data['skills'] || newSkills(),
+      spells: data['spells'] || newSpells(),
+      frequentlyUsedSpells: data['frequentlyUsedSpells'] || newFrequentlyUsedSpells(),
+      freeInput: data['freeInput'] || newFreeInput(),
     }
   }
 }

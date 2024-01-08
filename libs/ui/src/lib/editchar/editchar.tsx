@@ -4,12 +4,11 @@ import { LoadingButton } from '@mui/lab';
 import { Alert, Grid, TextField, Typography } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Character, newCharacter } from '@wi-charsheet/character';
-import { getById, update } from '@wi-charsheet/service';
+import { update } from '@wi-charsheet/service';
 import { InputCharSheet } from '@wi-charsheet/ui';
 import { baseSchema, hash } from '@wi-charsheet/utils';
-import { useCallback, useEffect } from 'react';
 import { Controller, FormProvider, SubmitHandler, useForm, useWatch } from 'react-hook-form';
-import { Link, useNavigate, useParams, unstable_usePrompt as usePrompt } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate, unstable_usePrompt as usePrompt } from 'react-router-dom';
 
 const StyledEditChar = styled('div')``
 
@@ -20,23 +19,10 @@ const schema = baseSchema.refine(data => {
 
 export function EditChar() {
   const methods = useForm<Character>({
-    defaultValues: newCharacter(),
+    defaultValues: useLoaderData() as Character,
     resolver: zodResolver(schema),
   })
   const { control, handleSubmit, formState: {isDirty, isSubmitting, errors}, reset } = methods
-
-  const { id }= useParams()
-
-  const resetFormAsync = useCallback(async () => {
-    if (id) {
-      const character = await getById(id)
-      reset(character)
-    }
-  }, [id, reset])
-
-  useEffect(() => {
-    resetFormAsync()
-  }, [])
 
   const password = useWatch({
     control,

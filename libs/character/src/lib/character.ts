@@ -7,6 +7,7 @@ import { GeneralInformation, newGeneralInformation } from '@wi-charsheet/general
 import { newSkills, Skills } from '@wi-charsheet/skills'
 import { newSpells, Spells } from '@wi-charsheet/spells'
 import { newWeapons, Weapons } from '@wi-charsheet/weapons'
+import { newFreeInput, FreeInput } from '@wi-charsheet/free-input'
 import { v4 as uuidv4 } from "uuid"
 
 export interface Character {
@@ -25,6 +26,7 @@ export interface Character {
   skills: Skills
   spells: Spells
   frequentlyUsedSpells: FrequentlyUsedSpell[]
+  freeInput: FreeInput
 }
 
 export function newCharacter(): Character {
@@ -44,5 +46,6 @@ export function newCharacter(): Character {
     skills: newSkills(),
     spells: newSpells(),
     frequentlyUsedSpells: newFrequentlyUsedSpells(),
+    freeInput: newFreeInput(),
   }
 }

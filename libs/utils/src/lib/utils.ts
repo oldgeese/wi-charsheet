@@ -56,5 +56,8 @@ export const baseSchema = z.object({
       item: z.string(),
       }))
   }),
-  frequentlyUsedSpells: z.any()
+  frequentlyUsedSpells: z.any(),
+  freeInput: z.object({
+    freeInput: z.string(),
+  }),
 })

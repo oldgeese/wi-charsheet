@@ -1,9 +1,8 @@
-import styled from '@emotion/styled';
-import { Grid, Typography } from '@mui/material';
+import { Grid, Table, TableCell, TableContainer, TableRow, Typography } from '@mui/material';
+import { FreeInput as Data} from '@wi-charsheet/free-input'
 
-/* eslint-disable-next-line */
 export interface FreeInputProps {
-  freeInput: string
+  freeInput: Data
 }
 
 export function FreeInput(props: FreeInputProps) {
@@ -11,7 +10,15 @@ export function FreeInput(props: FreeInputProps) {
   return (
     <Grid container item direction='column'>
       <Typography variant="h6">▽メモ</Typography>
-      <Typography variant='body1'>{p}</Typography>
+      <TableContainer>
+        <Table aria-label="free-input table">
+          <TableRow>
+            <TableCell>
+              <Typography variant='body1' style={{whiteSpace: 'pre-line'}}>{p.freeInput}</Typography>
+            </TableCell>
+          </TableRow>
+        </Table>
+      </TableContainer>
     </Grid>
   );
 }

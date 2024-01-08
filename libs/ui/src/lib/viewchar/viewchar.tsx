@@ -1,10 +1,8 @@
 import styled from '@emotion/styled';
 import Grid from '@mui/material/Grid';
 import { Character } from '@wi-charsheet/character';
-import { getById } from '@wi-charsheet/service';
 import { Charsheet } from '@wi-charsheet/ui';
-import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 
 const StyledViewChar = styled('div')`
 @media print {
@@ -15,18 +13,8 @@ const StyledViewChar = styled('div')`
 `
 
 export function ViewChar() {
+  const character = useLoaderData() as Character
   const { id } = useParams()
-  const [ character, setCharacter ] = useState<Character>()
-
-  useEffect(() => {
-    const getCharById = async () => {
-      if (id) {
-        const character = await getById(id)
-        setCharacter(character)
-      }
-    }
-    getCharById()
-  }, [id])
 
   return (
     <StyledViewChar>

@@ -9,16 +9,17 @@ import ListItemText from '@mui/material/ListItemText'
 import ListItemAvatar from '@mui/material/ListItemAvatar'
 import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
-import { Link } from "react-router-dom"
+import { Link, useLoaderData } from "react-router-dom"
 
-export interface DashboardProps {
+interface Characters {
   characters: Character[]
 }
 
 const StyledDashboard = styled('div')``
 
-export function Dashboard(props: DashboardProps) {
-  const {characters} = props
+export function Dashboard() {
+  const { characters } = useLoaderData() as Characters
+
   return (
     <StyledDashboard>
       <Grid container item justifyContent="center">

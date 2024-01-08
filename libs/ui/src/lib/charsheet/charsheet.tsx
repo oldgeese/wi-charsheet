@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid'
 import { Character } from '@wi-charsheet/character'
-import { Abilities, Bonds, Feats, Features, FrequentlyUsedSpells, GeneralInformation, Skills, Spells, Weapons } from '@wi-charsheet/ui'
+import { Abilities, Bonds, Feats, Features, FreeInput, FrequentlyUsedSpells, GeneralInformation, Skills, Spells, Weapons } from '@wi-charsheet/ui'
 
 export interface CharsheetProps {
   character: Character | undefined
@@ -20,6 +20,7 @@ export function Charsheet(props: CharsheetProps) {
       <Skills skills={p.skills}/>
       <Spells spells={p.spells}/>
       <FrequentlyUsedSpells frequentlyUsedSpells={p.frequentlyUsedSpells}/>
+      <FreeInput freeInput={p.freeInput}/>
     </Grid>
   );
 }
