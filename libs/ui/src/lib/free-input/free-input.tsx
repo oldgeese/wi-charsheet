@@ -14,7 +14,7 @@ export function FreeInput(props: FreeInputProps) {
         <Table aria-label="free-input table">
           <TableRow>
             <TableCell>
-              <Typography variant='body1' style={{whiteSpace: 'pre-line'}}>{p.freeInput}</Typography>
+              <Typography variant='body1' style={{whiteSpace: 'pre-wrap'}}>{p.freeInput}</Typography>
             </TableCell>
           </TableRow>
         </Table>

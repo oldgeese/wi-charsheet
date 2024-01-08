@@ -85,13 +85,13 @@ export function GeneralInformation(props: GeneralInformationProps) {
                       <TableCell>性別:{p.gender}</TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell colSpan={3} sx={{height:'46px'}} >&lt;器&gt;の形状と由来:<br/><div style={{whiteSpace: 'pre-line'}}>{p.shapeAndOriginOfCapacity}</div></TableCell>
+                      <TableCell colSpan={3} sx={{height:'46px'}} >&lt;器&gt;の形状と由来:<br/><div style={{whiteSpace: 'pre-wrap'}}>{p.shapeAndOriginOfCapacity}</div></TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell colSpan={3} sx={{height:'46px'}}>フェノメナでいる理由:<br/><div style={{whiteSpace: 'pre-line'}}>{p.reason}</div></TableCell>
+                      <TableCell colSpan={3} sx={{height:'46px'}}>フェノメナでいる理由:<br/><div style={{whiteSpace: 'pre-wrap'}}>{p.reason}</div></TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell colSpan={3} sx={{height:'46px'}}>外見の特徴など:<br/><div style={{whiteSpace: 'pre-line'}}>{p.appearance}</div></TableCell>
+                      <TableCell colSpan={3} sx={{height:'46px'}}>外見の特徴など:<br/><div style={{whiteSpace: 'pre-wrap'}}>{p.appearance}</div></TableCell>
                     </TableRow>
                   </TableBody>
                 </Table>
