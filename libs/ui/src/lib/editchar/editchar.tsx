@@ -3,7 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { LoadingButton } from '@mui/lab';
 import { Alert, Grid, TextField, Typography } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
-import { Character, newCharacter } from '@wi-charsheet/character';
+import { Character } from '@wi-charsheet/character';
 import { update } from '@wi-charsheet/service';
 import { InputCharSheet } from '@wi-charsheet/ui';
 import { baseSchema, hash } from '@wi-charsheet/utils';
